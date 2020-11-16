@@ -237,6 +237,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Emotional\Index.cshtml" />
     <Content Include="Views\Emotional\Create.cshtml" />
+    <Content Include="Views\Emotional\Details.cshtml" />
+    <Content Include="Views\Emotional\Edit.cshtml" />
+    <Content Include="Views\Emotional\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmotionalService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\whatUneed.Data\whatUneed.Data.csproj">
+      <Project>{e3d8c0e5-70b8-41cc-a3b8-cd83bb165a16}</Project>
+      <Name>whatUneed.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\whatUneed.Models\whatUneed.Models.csproj">
+      <Project>{9c80e55a-c561-4bf3-a55b-77f981799368}</Project>
+      <Name>whatUneed.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
