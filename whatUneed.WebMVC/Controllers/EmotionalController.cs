@@ -16,5 +16,11 @@ namespace whatUneed.WebMVC.Controllers
             var model = new EmotionalListItem[0];
             return View(model);
         }
+
+        //GET: Emotional/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
