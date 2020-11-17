@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
+    public enum Category { Stress = 1, Depression, Anxiety }
     public class Emotional
     {
         [Key]
@@ -14,6 +15,9 @@ namespace whatUneed.Data
 
         [Required]
         public Guid OwnerId { get; set; }
+
+        [Required]
+        public Category CategoryType { get; set; }
 
         [Required]
         public string Title { get; set; }

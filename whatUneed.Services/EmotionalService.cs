@@ -23,6 +23,7 @@ namespace whatUneed.Services
                 new Emotional()
                 {
                     OwnerId = _userId,
+                    CategoryType = model.CategoryType,
                     Title = model.Title,
                     Content = model.Content,
                     CreatedUtc = DateTimeOffset.Now

@@ -69,5 +69,11 @@
     <Folder Include="Physical\" />
     <Folder Include="Social\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\whatUneed.Data\whatUneed.Data.csproj">
+      <Project>{E3D8C0E5-70B8-41CC-A3B8-CD83BB165A16}</Project>
+      <Name>whatUneed.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
