@@ -21,6 +21,7 @@
             @Html.LabelFor(model => model.CategoryType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EnumDropDownListFor(model => model.CategoryType, "Select Category", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryType, "", new { @class = "text-danger" })
             </div>
         </div>
 

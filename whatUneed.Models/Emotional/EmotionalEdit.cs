@@ -12,9 +12,12 @@ namespace whatUneed.Models.Emotional
     {
         public int EmotionalId { get; set; }
 
+        [Range(1, int.MaxValue, ErrorMessage = "Select Category")]
         [Display(Name = "Category")]
         public Category CategoryType { get; set; }
+
         public string Title { get; set; }
+
         public string Content { get; set; }
     }
 }

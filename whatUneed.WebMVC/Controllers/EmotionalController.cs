@@ -64,6 +64,7 @@ namespace whatUneed.WebMVC.Controllers
                 new EmotionalEdit
                 {
                     EmotionalId = detail.EmotionalId,
+                    CategoryType = detail.CategoryType,
                     Title = detail.Title,
                     Content = detail.Content
                 };

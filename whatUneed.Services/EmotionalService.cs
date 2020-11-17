@@ -49,6 +49,7 @@ namespace whatUneed.Services
                                 new EmotionalListItem
                                 {
                                     EmotionalId = e.EmotionalId,
+                                    CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -70,6 +71,7 @@ namespace whatUneed.Services
                     new EmotionalDetail
                     {
                         EmotionalId = entity.EmotionalId,
+                        CategoryType = entity.CategoryType,
                         Title = entity.Title,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
@@ -86,7 +88,7 @@ namespace whatUneed.Services
                     ctx
                         .Emotionals
                         .Single(e => e.EmotionalId == model.EmotionalId && e.OwnerId == _userId);
-
+                entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
