@@ -54,7 +54,7 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    CreatedUtc = e.CreatedUtc
+                                    Url = e.Url
                                 }
                         );
 

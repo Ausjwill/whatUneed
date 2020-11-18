@@ -22,7 +22,8 @@ namespace whatUneed.Models.Emotional
 
         public string Description { get; set; }
 
-        public UrlAttribute Url { get; set; }
+        [Display(Name = "URL")]
+        public string Url { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

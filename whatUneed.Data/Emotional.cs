@@ -24,12 +24,12 @@ namespace whatUneed.Data
         public string Title { get; set; }
 
         [Required]
-        public Resource ResourceType { get; set; }
+        public Resource ResourceType{ get;  set; }
 
         [Required]
         public string Description { get; set; }
 
-        public UrlAttribute Url { get; set; }
+        public string Url { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

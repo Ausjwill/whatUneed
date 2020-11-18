@@ -16,6 +16,8 @@ namespace whatUneed.Models.Emotional
         [Display(Name = "Category")]
         public Category CategoryType { get; set; }
 
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
+        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "Select Resource Type")]
@@ -24,6 +26,7 @@ namespace whatUneed.Models.Emotional
 
         public string Description { get; set; }
 
-        public UrlAttribute Url { get; set; }
+        [Display(Name = "URL")]
+        public string Url { get; set; }
     }
 }

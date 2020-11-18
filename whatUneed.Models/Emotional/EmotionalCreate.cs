@@ -12,7 +12,7 @@ namespace whatUneed.Models.Emotional
     {
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Select Category")]
-        [Display(Name ="Category")]
+        [Display(Name = "Category")]
         public Category CategoryType { get; set; }
 
         [Required]
@@ -25,9 +25,9 @@ namespace whatUneed.Models.Emotional
         [Display(Name = "Resource Type")]
         public Resource ResourceType { get; set; }
 
-        [MaxLength(8000)]
         public string Description { get; set; }
 
-        public UrlAttribute Url { get; set; }
+        [Display(Name = "URL")]
+        public string Url { get; set; }
     }
 }

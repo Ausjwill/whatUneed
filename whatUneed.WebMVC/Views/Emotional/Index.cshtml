@@ -33,7 +33,7 @@
             @Html.DisplayNameFor(model => model.ResourceType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
+            @Html.DisplayNameFor(model => model.Url)
         </th>
         <th></th>
     </tr>
@@ -51,7 +51,7 @@
         @Html.DisplayFor(modelItem => item.ResourceType)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.CreatedUtc)
+        @Html.DisplayFor(modelItem => item.Url)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.EmotionalId }) |

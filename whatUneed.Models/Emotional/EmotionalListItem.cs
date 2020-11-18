@@ -20,7 +20,7 @@ namespace whatUneed.Models.Emotional
         [Display(Name = "Resource Type")]
         public Resource ResourceType { get; set; }
 
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "URL")]
+        public string Url { get; set; }
     }
 }
