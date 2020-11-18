@@ -18,6 +18,12 @@ namespace whatUneed.Models.Emotional
 
         public string Title { get; set; }
 
-        public string Content { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "Select Resource Type")]
+        [Display(Name = "Resource Type")]
+        public Resource ResourceType { get; set; }
+
+        public string Description { get; set; }
+
+        public UrlAttribute Url { get; set; }
     }
 }

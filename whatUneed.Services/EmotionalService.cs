@@ -25,7 +25,9 @@ namespace whatUneed.Services
                     OwnerId = _userId,
                     CategoryType = model.CategoryType,
                     Title = model.Title,
-                    Content = model.Content,
+                    ResourceType = model.ResourceType,
+                    Description = model.Description,
+                    Url = model.Url,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -51,6 +53,7 @@ namespace whatUneed.Services
                                     EmotionalId = e.EmotionalId,
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
+                                    ResourceType = e.ResourceType,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -73,7 +76,9 @@ namespace whatUneed.Services
                         EmotionalId = entity.EmotionalId,
                         CategoryType = entity.CategoryType,
                         Title = entity.Title,
-                        Content = entity.Content,
+                        ResourceType = entity.ResourceType,
+                        Description = entity.Description,
+                        Url = entity.Url,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -90,7 +95,9 @@ namespace whatUneed.Services
                         .Single(e => e.EmotionalId == model.EmotionalId && e.OwnerId == _userId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
-                entity.Content = model.Content;
+                entity.ResourceType = model.ResourceType;
+                entity.Description = model.Description;
+                entity.Url = model.Url;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

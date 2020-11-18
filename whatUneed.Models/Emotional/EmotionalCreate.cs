@@ -20,7 +20,14 @@ namespace whatUneed.Models.Emotional
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
 
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Select Resource Type")]
+        [Display(Name = "Resource Type")]
+        public Resource ResourceType { get; set; }
+
         [MaxLength(8000)]
-        public string Content { get; set; }
+        public string Description { get; set; }
+
+        public UrlAttribute Url { get; set; }
     }
 }

@@ -66,7 +66,9 @@ namespace whatUneed.WebMVC.Controllers
                     EmotionalId = detail.EmotionalId,
                     CategoryType = detail.CategoryType,
                     Title = detail.Title,
-                    Content = detail.Content
+                    ResourceType = detail.ResourceType,
+                    Description = detail.Description,
+                    Url = detail.Url
                 };
             return View(model);
         }
