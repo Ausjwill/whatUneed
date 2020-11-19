@@ -12,14 +12,17 @@ namespace whatUneed.Models.Emotional
     {
         public int EmotionalId { get; set; }
 
+        [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Select Category")]
         [Display(Name = "Category")]
         public Category CategoryType { get; set; }
 
+        [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
 
+        [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Select Resource Type")]
         [Display(Name = "Resource Type")]
         public Resource ResourceType { get; set; }
@@ -27,7 +30,8 @@ namespace whatUneed.Models.Emotional
         [MaxLength(5000)]
         public string Description { get; set; }
 
-        [Display(Name = "URL")]
+        [Url]
+        [Display(Name = "URL https://example.com")]
         public string Url { get; set; }
     }
 }

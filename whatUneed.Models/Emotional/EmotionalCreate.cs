@@ -28,7 +28,8 @@ namespace whatUneed.Models.Emotional
         [MaxLength(5000)]
         public string Description { get; set; }
 
-        [Display(Name = "URL")]
+        [Url]
+        [Display(Name = "URL https://example.com")]
         public string Url { get; set; }
     }
 }
