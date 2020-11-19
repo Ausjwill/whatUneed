@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Emotional</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -20,6 +20,11 @@
         @TempData["SaveResult"]
     </div>
 }
+
+<table class="search_table">
+    @Html.Partial("_Search_By_Category")
+    @Html.Partial("_Search_By_ResourceType")
+</table>
 
 <table class="table">
     <tr>

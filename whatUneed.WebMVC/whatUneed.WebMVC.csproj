@@ -241,6 +241,8 @@
     <Content Include="Views\Emotional\Edit.cshtml" />
     <Content Include="Views\Emotional\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Shared\_Search_By_Category.cshtml" />
+    <Content Include="Views\Shared\_Search_By_ResourceType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
