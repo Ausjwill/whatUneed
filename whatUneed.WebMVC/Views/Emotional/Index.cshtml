@@ -40,25 +40,30 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.CategoryType)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ResourceType)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Url)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.EmotionalId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.EmotionalId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.EmotionalId })
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResourceType)
+            </td>
+            <td>
+                <a href="
+           @Html.DisplayFor(modelItem => item.Url)
+           "
+                   target="blank">
+                    @Html.DisplayFor(modelItem => item.Url)
+                </a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmotionalId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmotionalId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmotionalId })
+            </td>
+        </tr>
     }
 
 </table>

@@ -43,7 +43,12 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Url)
+            <a href="
+           @Html.DisplayFor(model => model.Url)
+           "
+               target="blank">
+                @Html.DisplayFor(model => model.Url)
+            </a>
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.CreatedUtc)

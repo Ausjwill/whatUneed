@@ -24,6 +24,7 @@ namespace whatUneed.Models.Emotional
         [Display(Name = "Resource Type")]
         public Resource ResourceType { get; set; }
 
+        [MaxLength(5000)]
         public string Description { get; set; }
 
         [Display(Name = "URL")]
