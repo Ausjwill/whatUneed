@@ -175,9 +175,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmotionalController.cs" />
+    <Compile Include="Controllers\FinancialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PhysicalController.cs" />
+    <Compile Include="Controllers\SocialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -255,6 +257,16 @@
     <Content Include="Views\Physical\Details.cshtml" />
     <Content Include="Views\Physical\Edit.cshtml" />
     <Content Include="Views\Physical\Delete.cshtml" />
+    <Content Include="Views\Social\Index.cshtml" />
+    <Content Include="Views\Social\Create.cshtml" />
+    <Content Include="Views\Social\Details.cshtml" />
+    <Content Include="Views\Social\Edit.cshtml" />
+    <Content Include="Views\Social\Delete.cshtml" />
+    <Content Include="Views\Financial\Index.cshtml" />
+    <Content Include="Views\Financial\Create.cshtml" />
+    <Content Include="Views\Financial\Details.cshtml" />
+    <Content Include="Views\Financial\Edit.cshtml" />
+    <Content Include="Views\Financial\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

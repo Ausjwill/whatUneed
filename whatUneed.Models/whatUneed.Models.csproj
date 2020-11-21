@@ -58,20 +58,25 @@
     <Compile Include="Emotional\EmotionalCreate.cs" />
     <Compile Include="Emotional\EmotionalListItem.cs" />
     <Compile Include="Emotional\EmotionalDetail.cs" />
+    <Compile Include="Financial\FinancialCreate.cs" />
+    <Compile Include="Financial\FinancialDetail.cs" />
+    <Compile Include="Financial\FinancialEdit.cs" />
+    <Compile Include="Financial\FinancialListItem.cs" />
     <Compile Include="Physical\PhysicalCreate.cs" />
     <Compile Include="Physical\PhysicalDetail.cs" />
     <Compile Include="Physical\PhysicalEdit.cs" />
     <Compile Include="Physical\PhysicalListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Social\SocialCreate.cs" />
+    <Compile Include="Social\SocialDetail.cs" />
+    <Compile Include="Social\SocialEdit.cs" />
+    <Compile Include="Social\SocialListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Financial\" />
-    <Folder Include="Social\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\whatUneed.Data\whatUneed.Data.csproj">
       <Project>{E3D8C0E5-70B8-41CC-A3B8-CD83BB165A16}</Project>

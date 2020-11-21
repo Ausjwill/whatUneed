@@ -55,8 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmotionalService.cs" />
+    <Compile Include="FinancialService.cs" />
     <Compile Include="PhysicalService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocialService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
