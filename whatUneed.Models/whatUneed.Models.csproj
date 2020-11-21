@@ -58,6 +58,10 @@
     <Compile Include="Emotional\EmotionalCreate.cs" />
     <Compile Include="Emotional\EmotionalListItem.cs" />
     <Compile Include="Emotional\EmotionalDetail.cs" />
+    <Compile Include="Physical\PhysicalCreate.cs" />
+    <Compile Include="Physical\PhysicalDetail.cs" />
+    <Compile Include="Physical\PhysicalEdit.cs" />
+    <Compile Include="Physical\PhysicalListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Financial\" />
-    <Folder Include="Physical\" />
     <Folder Include="Social\" />
   </ItemGroup>
   <ItemGroup>

@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Emotional.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Physical.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

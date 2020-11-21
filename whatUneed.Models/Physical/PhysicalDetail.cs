@@ -6,19 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using whatUneed.Data;
 
-namespace whatUneed.Models.Emotional
+namespace whatUneed.Models.Physical
 {
-    public class EmotionalDetail
+    public class PhysicalDetail
     {
-        public int EmotionalId { get; set; }
+        public int PhysicalId { get; set; }
 
         [Display(Name = "Category")]
-        public EmotionalCategory CategoryType { get; set; }
+        public PhysicalCategory CategoryType { get; set; }
 
         public string Title { get; set; }
 
         [Display(Name = "Resource Type")]
-        public EmotionalResource ResourceType { get; set; }
+        public PhysicalResource ResourceType { get; set; }
 
         public string Description { get; set; }
 

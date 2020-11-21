@@ -1,0 +1,74 @@
+﻿@model IEnumerable<whatUneed.Models.Physical.PhysicalListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Physical</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+@*<table class="search_table">
+    @Html.Partial("_Search_By_Category")
+    @Html.Partial("_Search_By_ResourceType")
+</table>*@
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResourceType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResourceType)
+            </td>
+            <td>
+                <a href="
+           @Html.DisplayFor(modelItem => item.Url)
+           "
+                   target="blank">
+                    @Html.DisplayFor(modelItem => item.Url)
+                </a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PhysicalId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PhysicalId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PhysicalId })
+            </td>
+        </tr>
+    }
+
+</table>

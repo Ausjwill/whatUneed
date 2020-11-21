@@ -1,0 +1,74 @@
+﻿@model whatUneed.Models.Physical.PhysicalDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResourceType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            <a href="
+           @Html.DisplayFor(model => model.Url)
+           "
+               target="blank">
+                @Html.DisplayFor(model => model.Url)
+            </a>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhysicalId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.PhysicalId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

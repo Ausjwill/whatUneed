@@ -4,24 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using whatUneed.Data;
-using whatUneed.Models.Emotional;
+using whatUneed.Models.Physical;
 
 namespace whatUneed.Services
 {
-    public class EmotionalService
+    public class PhysicalService
     {
         private readonly Guid _userId;
-        readonly List<EmotionalListItem> searchResults = new List<EmotionalListItem>();
+        readonly List<PhysicalListItem> searchResults = new List<PhysicalListItem>();
 
-        public EmotionalService(Guid userId)
+        public PhysicalService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateEmotional(EmotionalCreate model)
+        public bool CreatePhysical(PhysicalCreate model)
         {
             var entity =
-                new Emotional()
+                new Physical()
                 {
                     OwnerId = _userId,
                     CategoryType = model.CategoryType,
@@ -34,24 +34,24 @@ namespace whatUneed.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Emotionals.Add(entity);
+                ctx.Physicals.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<EmotionalListItem> GetEmotionals()
+        public IEnumerable<PhysicalListItem> GetPhysicals()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Emotionals
+                        .Physicals
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new EmotionalListItem
+                                new PhysicalListItem
                                 {
-                                    EmotionalId = e.EmotionalId,
+                                    PhysicalId = e.PhysicalId,
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
@@ -63,18 +63,18 @@ namespace whatUneed.Services
             }
         }
 
-        public EmotionalDetail GetEmotionalById(int id)
+        public PhysicalDetail GetPhysicalById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Emotionals
-                        .Single(e => e.EmotionalId == id && e.OwnerId == _userId);
+                        .Physicals
+                        .Single(e => e.PhysicalId == id && e.OwnerId == _userId);
                 return
-                    new EmotionalDetail
+                    new PhysicalDetail
                     {
-                        EmotionalId = entity.EmotionalId,
+                        PhysicalId = entity.PhysicalId,
                         CategoryType = entity.CategoryType,
                         Title = entity.Title,
                         ResourceType = entity.ResourceType,
@@ -86,35 +86,35 @@ namespace whatUneed.Services
             }
         }
 
-        public List<EmotionalListItem> GetEmotionalByCategory(string category)
+        public List<PhysicalListItem> GetPhysicalByCategory(string category)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var emotionals = ctx.Emotionals.Where(e => e.CategoryType.Equals(category)).ToList();
-                foreach (var emotional in emotionals)
+                var physicals = ctx.Physicals.Where(e => e.CategoryType.Equals(category)).ToList();
+                foreach (var physical in physicals)
                 {
-                    var foundEmotional = new EmotionalListItem
+                    var foundPhysical = new PhysicalListItem
                     {
-                        EmotionalId = emotional.EmotionalId,
-                        CategoryType = emotional.CategoryType,
-                        Title = emotional.Title,
-                        ResourceType = emotional.ResourceType,
-                        Url = emotional.Url,
+                        PhysicalId = physical.PhysicalId,
+                        CategoryType = physical.CategoryType,
+                        Title = physical.Title,
+                        ResourceType = physical.ResourceType,
+                        Url = physical.Url,
                     };
-                    searchResults.Add(foundEmotional);
+                    searchResults.Add(foundPhysical);
                 }
                 return searchResults;
             }
         }
 
-        public bool UpdateEmotional(EmotionalEdit model)
+        public bool UpdatePhysical(PhysicalEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Emotionals
-                        .Single(e => e.EmotionalId == model.EmotionalId && e.OwnerId == _userId);
+                        .Physicals
+                        .Single(e => e.PhysicalId == model.PhysicalId && e.OwnerId == _userId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -126,16 +126,16 @@ namespace whatUneed.Services
             }
         }
 
-        public bool DeleteEmotional(int emotionalId)
+        public bool DeletePhysical(int physicalId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Emotionals
-                        .Single(e => e.EmotionalId == emotionalId && e.OwnerId == _userId);
+                        .Physicals
+                        .Single(e => e.PhysicalId == physicalId && e.OwnerId == _userId);
 
-                ctx.Emotionals.Remove(entity);
+                ctx.Physicals.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

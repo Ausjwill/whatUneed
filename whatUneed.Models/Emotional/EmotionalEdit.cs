@@ -15,7 +15,7 @@ namespace whatUneed.Models.Emotional
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Select Category")]
         [Display(Name = "Category")]
-        public Category CategoryType { get; set; }
+        public EmotionalCategory CategoryType { get; set; }
 
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
@@ -25,7 +25,7 @@ namespace whatUneed.Models.Emotional
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Select Resource Type")]
         [Display(Name = "Resource Type")]
-        public Resource ResourceType { get; set; }
+        public EmotionalResource ResourceType { get; set; }
 
         [MaxLength(5000)]
         public string Description { get; set; }

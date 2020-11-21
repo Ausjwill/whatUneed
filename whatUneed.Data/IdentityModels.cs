@@ -33,6 +33,7 @@ namespace whatUneed.Data
         }
 
         public DbSet<Emotional> Emotionals { get; set; }
+        public DbSet<Physical> Physicals { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

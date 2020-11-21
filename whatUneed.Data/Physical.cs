@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
-    public enum EmotionalCategory { Stress = 1, Depression, Anxiety, Family, }
-    public enum EmotionalResource { App = 1, Book, Website, Other}
-    public class Emotional
+    public enum PhysicalCategory { Stress = 1, Depression, Anxiety, Family, }
+    public enum PhysicalResource { App = 1, Book, Website, Other }
+    public class Physical
     {
         [Key]
-        public int EmotionalId { get; set; }
+        public int PhysicalId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }
 
         [Required]
-        public EmotionalCategory CategoryType { get; set; }
+        public PhysicalCategory CategoryType { get; set; }
 
         [Required]
         public string Title { get; set; }
 
         [Required]
-        public EmotionalResource ResourceType{ get;  set; }
+        public PhysicalResource ResourceType { get; set; }
 
         [Required]
         public string Description { get; set; }

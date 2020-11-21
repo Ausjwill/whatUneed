@@ -5,25 +5,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using whatUneed.Models.Emotional;
+using whatUneed.Models.Physical;
 using whatUneed.Services;
 
 namespace whatUneed.WebMVC.Controllers
 {
     [Authorize]
-    public class EmotionalController : Controller
+    public class PhysicalController : Controller
     {
-        // GET: Emotional
+        // GET: Physical
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new EmotionalService(userId);
-            var model = service.GetEmotionals();
+            var service = new PhysicalService(userId);
+            var model = service.GetPhysicals();
 
             return View(model);
         }
 
-        //GET: Emotional/Create
+        //GET: Physical/Create
         public ActionResult Create()
         {
             return View();
@@ -31,13 +31,13 @@ namespace whatUneed.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EmotionalCreate model)
+        public ActionResult Create(PhysicalCreate model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateEmotionalService();
+            var service = CreatePhysicalService();
 
-            if (service.CreateEmotional(model))
+            if (service.CreatePhysical(model))
             {
                 TempData["SaveResult"] = "Your entry was created.";
                 return RedirectToAction("Index");
@@ -49,29 +49,29 @@ namespace whatUneed.WebMVC.Controllers
 
         public ActionResult GetByCategory(string category)
         {
-            EmotionalService emotionalService = CreateEmotionalService();
-            var emotional = emotionalService.GetEmotionalByCategory(category);
+            PhysicalService physicalService = CreatePhysicalService();
+            var physical = physicalService.GetPhysicalByCategory(category);
 
-            if (emotional.Count == 0) ModelState.AddModelError("", "Category not found.");
-            return View(emotional);
+            if (physical.Count == 0) ModelState.AddModelError("", "Category not found.");
+            return View(physical);
         }
 
         public ActionResult Details(int id)
         {
-            var svc = CreateEmotionalService();
-            var model = svc.GetEmotionalById(id);
+            var svc = CreatePhysicalService();
+            var model = svc.GetPhysicalById(id);
 
             return View(model);
         }
 
         public ActionResult Edit(int id)
         {
-            var service = CreateEmotionalService();
-            var detail = service.GetEmotionalById(id);
+            var service = CreatePhysicalService();
+            var detail = service.GetPhysicalById(id);
             var model =
-                new EmotionalEdit
+                new PhysicalEdit
                 {
-                    EmotionalId = detail.EmotionalId,
+                    PhysicalId = detail.PhysicalId,
                     CategoryType = detail.CategoryType,
                     Title = detail.Title,
                     ResourceType = detail.ResourceType,
@@ -83,19 +83,19 @@ namespace whatUneed.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, EmotionalEdit model)
+        public ActionResult Edit(int id, PhysicalEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.EmotionalId != id)
+            if (model.PhysicalId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var service = CreateEmotionalService();
+            var service = CreatePhysicalService();
 
-            if (service.UpdateEmotional(model))
+            if (service.UpdatePhysical(model))
             {
                 TempData["SaveResult"] = "Your entry was updated.";
                 return RedirectToAction("Index");
@@ -108,8 +108,8 @@ namespace whatUneed.WebMVC.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var svc = CreateEmotionalService();
-            var model = svc.GetEmotionalById(id);
+            var svc = CreatePhysicalService();
+            var model = svc.GetPhysicalById(id);
 
             return View(model);
         }
@@ -119,19 +119,19 @@ namespace whatUneed.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateEmotionalService();
+            var service = CreatePhysicalService();
 
-            service.DeleteEmotional(id);
+            service.DeletePhysical(id);
 
             TempData["SaveResult"] = "Your entry was deleted";
 
             return RedirectToAction("Index");
         }
 
-        private EmotionalService CreateEmotionalService()
+        private PhysicalService CreatePhysicalService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new EmotionalService(userId);
+            var service = new PhysicalService(userId);
             return service;
         }
     }
