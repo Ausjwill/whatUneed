@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
-    public enum FinancialCategory { Stress = 1, Depression, Anxiety, Family, }
-    public enum FinancialResource { App = 1, Book, Website, Other }
+    public enum FinancialCategory { Planning = 1, Saving }
     public class Financial
     {
         [Key]
@@ -24,7 +23,7 @@ namespace whatUneed.Data
         public string Title { get; set; }
 
         [Required]
-        public FinancialResource ResourceType { get; set; }
+        public Resource ResourceType { get; set; }
 
         [Required]
         public string Description { get; set; }

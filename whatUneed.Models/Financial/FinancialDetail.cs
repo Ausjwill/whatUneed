@@ -18,7 +18,7 @@ namespace whatUneed.Models.Financial
         public string Title { get; set; }
 
         [Display(Name = "Resource Type")]
-        public FinancialResource ResourceType { get; set; }
+        public Resource ResourceType { get; set; }
 
         public string Description { get; set; }
 

@@ -18,7 +18,7 @@ namespace whatUneed.Models.Social
         public string Title { get; set; }
 
         [Display(Name = "Resource Type")]
-        public SocialResource ResourceType { get; set; }
+        public Resource ResourceType { get; set; }
 
         [Display(Name = "URL")]
         public string Url { get; set; }

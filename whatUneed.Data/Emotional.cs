@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
-    public enum EmotionalCategory { Stress = 1, Depression, Anxiety, Family, }
-    public enum EmotionalResource { App = 1, Book, Website, Other}
+    public enum EmotionalCategory { Stress = 1, Depression, Anxiety, Family }
+    public enum Resource { App = 1, Book, Website, Suggestion }
     public class Emotional
     {
         [Key]
@@ -24,7 +24,7 @@ namespace whatUneed.Data
         public string Title { get; set; }
 
         [Required]
-        public EmotionalResource ResourceType{ get;  set; }
+        public Resource ResourceType{ get;  set; }
 
         [Required]
         public string Description { get; set; }

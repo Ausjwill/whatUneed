@@ -18,7 +18,7 @@ namespace whatUneed.Models.Emotional
         public string Title { get; set; }
 
         [Display(Name = "Resource Type")]
-        public EmotionalResource ResourceType { get; set; }
+        public Resource ResourceType { get; set; }
 
         [Display(Name = "URL")]
         public string Url { get; set; }

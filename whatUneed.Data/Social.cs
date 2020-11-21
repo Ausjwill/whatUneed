@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
-    public enum SocialCategory { Stress = 1, Depression, Anxiety, Family, }
-    public enum SocialResource { App = 1, Book, Website, Other }
+    public enum SocialCategory { Loneliness = 1, Depression }
     public class Social
     {
         [Key]
@@ -24,7 +23,7 @@ namespace whatUneed.Data
         public string Title { get; set; }
 
         [Required]
-        public SocialResource ResourceType { get; set; }
+        public Resource ResourceType { get; set; }
 
         [Required]
         public string Description { get; set; }

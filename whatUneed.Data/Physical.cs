@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
-    public enum PhysicalCategory { Stress = 1, Depression, Anxiety, Family, }
-    public enum PhysicalResource { App = 1, Book, Website, Other }
+    public enum PhysicalCategory { Strength = 1, Endurance, Flexibility, Pampering }
     public class Physical
     {
         [Key]
@@ -24,7 +23,7 @@ namespace whatUneed.Data
         public string Title { get; set; }
 
         [Required]
-        public PhysicalResource ResourceType { get; set; }
+        public Resource ResourceType { get; set; }
 
         [Required]
         public string Description { get; set; }

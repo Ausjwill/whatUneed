@@ -23,7 +23,7 @@ namespace whatUneed.Models.Emotional
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Select Resource Type")]
         [Display(Name = "Resource Type")]
-        public EmotionalResource ResourceType { get; set; }
+        public Resource ResourceType { get; set; }
 
         [MaxLength(5000)]
         public string Description { get; set; }
