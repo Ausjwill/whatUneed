@@ -30,6 +30,8 @@ namespace whatUneed.Data
 
         public string Url { get; set; }
 
+        public bool InPerson { get; set; }
+
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 

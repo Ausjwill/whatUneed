@@ -25,6 +25,8 @@ namespace whatUneed.Models.Social
         [Display(Name = "URL")]
         public string Url { get; set; }
 
+        public bool InPerson { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 

@@ -250,8 +250,7 @@
     <Content Include="Views\Emotional\Edit.cshtml" />
     <Content Include="Views\Emotional\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
-    <Content Include="Views\Emotional\_Search_By_Category.cshtml" />
-    <Content Include="Views\Emotional\_Search_By_ResourceType.cshtml" />
+    <Content Include="Views\Emotional\_Search.cshtml" />
     <Content Include="Views\Physical\Index.cshtml" />
     <Content Include="Views\Physical\Create.cshtml" />
     <Content Include="Views\Physical\Details.cshtml" />

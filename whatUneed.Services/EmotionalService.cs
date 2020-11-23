@@ -86,24 +86,99 @@ namespace whatUneed.Services
             }
         }
 
-        public List<EmotionalListItem> GetEmotionalByCategory(string category)
+        public IEnumerable<EmotionalListItem> GetEmotionalByCategory(EmotionalCategory category)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var emotionals = ctx.Emotionals.Where(e => e.CategoryType.Equals(category)).ToList();
-                foreach (var emotional in emotionals)
-                {
-                    var foundEmotional = new EmotionalListItem
-                    {
-                        EmotionalId = emotional.EmotionalId,
-                        CategoryType = emotional.CategoryType,
-                        Title = emotional.Title,
-                        ResourceType = emotional.ResourceType,
-                        Url = emotional.Url,
-                    };
-                    searchResults.Add(foundEmotional);
-                }
-                return searchResults;
+                var categories =
+                    ctx
+                        .Emotionals
+                        .Where(e => e.CategoryType == category)
+                        .Select(
+                            e =>
+                                new EmotionalListItem
+                                {
+                                    EmotionalId = e.EmotionalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    Url = e.Url
+                                }
+                        );
+
+                return categories.ToArray();
+            }
+        }
+
+        public IEnumerable<EmotionalListItem> GetEmotionalByResource(Resource resource)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Emotionals
+                        .Where(e => e.ResourceType == resource)
+                        .Select(
+                            e =>
+                                new EmotionalListItem
+                                {
+                                    EmotionalId = e.EmotionalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    Url = e.Url
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<EmotionalListItem> GetEmotionalByTitle(string title)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Emotionals
+                        .Where(e => e.Title.Contains(title))
+                        .Select(
+                            e =>
+                                new EmotionalListItem
+                                {
+                                    EmotionalId = e.EmotionalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    Url = e.Url
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<EmotionalListItem> GetEmotionalByUrl(string url)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Emotionals
+                        .Where(e => e.Url.Contains(url))
+                        .Select(
+                            e =>
+                                new EmotionalListItem
+                                {
+                                    EmotionalId = e.EmotionalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    Url = e.Url
+                                }
+                        );
+
+                return resources.ToArray();
             }
         }
 

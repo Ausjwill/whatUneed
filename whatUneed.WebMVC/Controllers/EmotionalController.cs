@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using whatUneed.Data;
 using whatUneed.Models.Emotional;
 using whatUneed.Services;
 
@@ -21,6 +22,34 @@ namespace whatUneed.WebMVC.Controllers
             var model = service.GetEmotionals();
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string CategoryType, string ResourceType, string title, string url)
+        {
+            var service = CreateEmotionalService();
+            Enum.TryParse($"{CategoryType}", out EmotionalCategory category);
+            var cat = service.GetEmotionalByCategory(category);
+
+            if (category == 0)
+            {
+                Enum.TryParse($"{ResourceType}", out Resource resource);
+                var res = service.GetEmotionalByResource(resource);
+
+                if (resource == 0)
+                {
+                    var til = service.GetEmotionalByTitle(title);
+
+                    if (title == null)
+                    {
+                        var web = service.GetEmotionalByUrl(url);
+                        return View(web);
+                    }
+                    return View(til);
+                }
+                    return View(res);
+            }
+            return View(cat);
         }
 
         //GET: Emotional/Create
@@ -45,15 +74,6 @@ namespace whatUneed.WebMVC.Controllers
 
             ModelState.AddModelError("", "Entry could not be created.");
             return View(model);
-        }
-
-        public ActionResult GetByCategory(string category)
-        {
-            EmotionalService emotionalService = CreateEmotionalService();
-            var emotional = emotionalService.GetEmotionalByCategory(category);
-
-            if (emotional.Count == 0) ModelState.AddModelError("", "Category not found.");
-            return View(emotional);
         }
 
         public ActionResult Details(int id)

@@ -76,7 +76,8 @@ namespace whatUneed.WebMVC.Controllers
                     Title = detail.Title,
                     ResourceType = detail.ResourceType,
                     Description = detail.Description,
-                    Url = detail.Url
+                    Url = detail.Url,
+                    InPerson = detail.InPerson
                 };
             return View(model);
         }

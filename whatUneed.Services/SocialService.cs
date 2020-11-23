@@ -29,6 +29,7 @@ namespace whatUneed.Services
                     ResourceType = model.ResourceType,
                     Description = model.Description,
                     Url = model.Url,
+                    InPerson = model.InPerson,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -55,7 +56,8 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    Url = e.Url,
+                                    InPerson = e.InPerson
                                 }
                         );
 
@@ -80,6 +82,7 @@ namespace whatUneed.Services
                         ResourceType = entity.ResourceType,
                         Description = entity.Description,
                         Url = entity.Url,
+                        InPerson = entity.InPerson,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -100,6 +103,7 @@ namespace whatUneed.Services
                         Title = social.Title,
                         ResourceType = social.ResourceType,
                         Url = social.Url,
+                        InPerson = social.InPerson
                     };
                     searchResults.Add(foundSocial);
                 }
@@ -120,6 +124,7 @@ namespace whatUneed.Services
                 entity.ResourceType = model.ResourceType;
                 entity.Description = model.Description;
                 entity.Url = model.Url;
+                entity.InPerson = model.InPerson;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

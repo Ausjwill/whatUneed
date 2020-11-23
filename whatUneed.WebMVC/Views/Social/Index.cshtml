@@ -40,6 +40,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Url)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InPerson)
+        </th>
         <th></th>
     </tr>
 
@@ -62,6 +65,9 @@
                    target="blank">
                     @Html.DisplayFor(modelItem => item.Url)
                 </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InPerson)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.SocialId }) |
