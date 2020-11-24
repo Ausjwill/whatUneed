@@ -9,7 +9,7 @@ namespace whatUneed.Data
 {
     public enum EmotionalCategory { Stress = 1, Depression, Anxiety, Family, Relationships }
     public enum Resource { App = 1, Book, Website, Suggestion, Podcast, Video, Other }
-    public enum State { AL, AK, AZ, AR, CA, CO, CT, DE, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UR, VT, VA, WA, WV, WI, WY}
+    public enum State { AL = 1, AK, AZ, AR, CA, CO, CT, DE, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, RI, SC, SD, TN, TX, UR, VT, VA, WA, WV, WI, WY}
     public class Emotional
     {
         [Key]
@@ -30,9 +30,15 @@ namespace whatUneed.Data
         [Required]
         public string Description { get; set; }
 
-        public string Url { get; set; }
+        public string City { get; set; }
 
         public State State { get; set; }
+
+        public bool InPerson { get; set; }
+
+        public bool AddToFavorites { get; set; }
+
+        public string Url { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

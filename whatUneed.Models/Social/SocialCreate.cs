@@ -32,6 +32,7 @@ namespace whatUneed.Models.Social
         [Display(Name = "URL https://example.com")]
         public string Url { get; set; }
 
+        [Display(Name = "In Person")]
         public bool InPerson { get; set; }
     }
 }

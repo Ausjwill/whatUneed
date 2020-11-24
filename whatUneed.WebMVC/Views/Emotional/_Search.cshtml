@@ -1,7 +1,4 @@
-﻿<p>
-    Search by:
-</p>
-<table>
+﻿<table>
     <tr>
         <th>
             @using (Html.BeginForm("Index", "Emotional", null))
@@ -11,7 +8,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.TextBox("CategoryType", "", new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextBox("categoryType", "", new { htmlAttributes = new { @class = "form-control" } })
                             <input type="submit" value="Category" class="btn btn-primary btn-xs" />
                         </div>
                     </div>
@@ -26,7 +23,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.TextBox("Title", "", new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextBox("title", "", new { htmlAttributes = new { @class = "form-control" } })
                             <input type="submit" value="Title" class="btn btn-primary btn-xs" />
                         </div>
                     </div>
@@ -41,7 +38,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.TextBox("ResourceType", "", new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextBox("resourceType", "", new { htmlAttributes = new { @class = "form-control" } })
                             <input type="submit" value="Resource" class="btn btn-primary btn-xs" />
                         </div>
                     </div>
@@ -56,8 +53,9 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.TextBox("Url", "", new { htmlAttributes = new { @class = "form-control" } })
-                            <input type="submit" value="URL" class="btn btn-primary btn-xs" />
+                            @Html.CheckBox("inPerson", new { htmlAttributes = new { @class = "form-control" } })
+                            <label>In Person</label>
+                            <button type="submit" class="btn btn-primary btn-xs">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -65,4 +63,3 @@
         </th>
     </tr>
 </table>
-@Html.ActionLink("Back to List", "Index")

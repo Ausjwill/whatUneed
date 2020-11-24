@@ -25,15 +25,15 @@ namespace whatUneed.WebMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string CategoryType, string ResourceType, string title, string url)
+        public ActionResult Index(string categoryType, string resourceType, string title)
         {
             var service = CreateEmotionalService();
-            Enum.TryParse($"{CategoryType}", out EmotionalCategory category);
+            Enum.TryParse($"{categoryType}", out EmotionalCategory category);
             var cat = service.GetEmotionalByCategory(category);
 
             if (category == 0)
             {
-                Enum.TryParse($"{ResourceType}", out Resource resource);
+                Enum.TryParse($"{resourceType}", out Resource resource);
                 var res = service.GetEmotionalByResource(resource);
 
                 if (resource == 0)
@@ -42,12 +42,12 @@ namespace whatUneed.WebMVC.Controllers
 
                     if (title == null)
                     {
-                        var web = service.GetEmotionalByUrl(url);
-                        return View(web);
+                            var per = service.GetEmotionalByInPerson();
+                            return View(per);
                     }
                     return View(til);
                 }
-                    return View(res);
+                return View(res);
             }
             return View(cat);
         }
@@ -96,8 +96,11 @@ namespace whatUneed.WebMVC.Controllers
                     Title = detail.Title,
                     ResourceType = detail.ResourceType,
                     Description = detail.Description,
+                    City = detail.City,
+                    State = detail.State,
+                    InPerson = detail.InPerson,
+                    AddToFavorites = detail.AddToFavorites,
                     Url = detail.Url,
-                    State = detail.State
                 };
             return View(model);
         }

@@ -28,8 +28,11 @@ namespace whatUneed.Services
                     Title = model.Title,
                     ResourceType = model.ResourceType,
                     Description = model.Description,
-                    Url = model.Url,
+                    City = model.City,
                     State = model.State,
+                    InPerson = model.InPerson,
+                    AddToFavorites = model.AddToFavorites,
+                    Url = model.Url,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -56,8 +59,11 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
                                     Url = e.Url,
-                                    State = e.State
                                 }
                         );
 
@@ -81,8 +87,11 @@ namespace whatUneed.Services
                         Title = entity.Title,
                         ResourceType = entity.ResourceType,
                         Description = entity.Description,
-                        Url = entity.Url,
+                        City = entity.City,
                         State = entity.State,
+                        InPerson = entity.InPerson,
+                        AddToFavorites = entity.AddToFavorites,
+                        Url = entity.Url,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -105,8 +114,11 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
                                     Url = e.Url,
-                                    State = e.State
                                 }
                         );
 
@@ -130,8 +142,10 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
                                     Url = e.Url,
-                                    State = e.State
                                 }
                         );
 
@@ -155,8 +169,11 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
                                     Url = e.Url,
-                                    State = e.State
                                 }
                         );
 
@@ -180,8 +197,39 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
                                     Url = e.Url,
-                                    State = e.State
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<EmotionalListItem> GetEmotionalByInPerson()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Emotionals
+                        .Where(e => e.InPerson == true)
+                        .Select(
+                            e =>
+                                new EmotionalListItem
+                                {
+                                    EmotionalId = e.EmotionalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
                                 }
                         );
 
@@ -201,8 +249,11 @@ namespace whatUneed.Services
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
                 entity.Description = model.Description;
-                entity.Url = model.Url;
+                entity.City = model.City;
                 entity.State = model.State;
+                entity.InPerson = model.InPerson;
+                entity.AddToFavorites = model.AddToFavorites;
+                entity.Url = model.Url;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
