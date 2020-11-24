@@ -33,5 +33,7 @@ namespace whatUneed.Models.Emotional
         [Url]
         [Display(Name = "URL https://example.com")]
         public string Url { get; set; }
+
+        public State State { get; set; }
     }
 }

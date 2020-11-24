@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
-    public enum PhysicalCategory { Strength = 1, Endurance, Flexibility, Pampering }
+    public enum PhysicalCategory { Self_Care = 1, Sleep, Exercise, Stress_Relief, Safety }
     public class Physical
     {
         [Key]

@@ -30,5 +30,7 @@ namespace whatUneed.Models.Emotional
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        public State State { get; set; }
     }
 }

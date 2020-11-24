@@ -29,6 +29,7 @@ namespace whatUneed.Services
                     ResourceType = model.ResourceType,
                     Description = model.Description,
                     Url = model.Url,
+                    State = model.State,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -55,7 +56,8 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    Url = e.Url,
+                                    State = e.State
                                 }
                         );
 
@@ -80,6 +82,7 @@ namespace whatUneed.Services
                         ResourceType = entity.ResourceType,
                         Description = entity.Description,
                         Url = entity.Url,
+                        State = entity.State,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -102,7 +105,8 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    Url = e.Url,
+                                    State = e.State
                                 }
                         );
 
@@ -126,7 +130,8 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    Url = e.Url,
+                                    State = e.State
                                 }
                         );
 
@@ -150,7 +155,8 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    Url = e.Url,
+                                    State = e.State
                                 }
                         );
 
@@ -174,7 +180,8 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    Url = e.Url,
+                                    State = e.State
                                 }
                         );
 
@@ -195,6 +202,7 @@ namespace whatUneed.Services
                 entity.ResourceType = model.ResourceType;
                 entity.Description = model.Description;
                 entity.Url = model.Url;
+                entity.State = model.State;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

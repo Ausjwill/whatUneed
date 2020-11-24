@@ -22,5 +22,7 @@ namespace whatUneed.Models.Emotional
 
         [Display(Name = "URL")]
         public string Url { get; set; }
+
+        public State State { get; set; }
     }
 }

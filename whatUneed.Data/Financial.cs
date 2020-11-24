@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace whatUneed.Data
 {
-    public enum FinancialCategory { Planning = 1, Saving }
+    public enum FinancialCategory { Budgeting = 1, Saving, Debt, Support, Will_Trust }
     public class Financial
     {
         [Key]
