@@ -11,7 +11,6 @@ namespace whatUneed.Services
     public class SocialService
     {
         private readonly Guid _userId;
-        readonly List<SocialListItem> searchResults = new List<SocialListItem>();
 
         public SocialService(Guid userId)
         {
@@ -28,8 +27,11 @@ namespace whatUneed.Services
                     Title = model.Title,
                     ResourceType = model.ResourceType,
                     Description = model.Description,
-                    Url = model.Url,
+                    City = model.City,
+                    State = model.State,
                     InPerson = model.InPerson,
+                    AddToFavorites = model.AddToFavorites,
+                    Url = model.Url,
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -56,8 +58,11 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
                                     Url = e.Url,
-                                    InPerson = e.InPerson
                                 }
                         );
 
@@ -81,33 +86,154 @@ namespace whatUneed.Services
                         Title = entity.Title,
                         ResourceType = entity.ResourceType,
                         Description = entity.Description,
-                        Url = entity.Url,
+                        City = entity.City,
+                        State = entity.State,
                         InPerson = entity.InPerson,
+                        AddToFavorites = entity.AddToFavorites,
+                        Url = entity.Url,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
 
-        public List<SocialListItem> GetSocialByCategory(string category)
+        public IEnumerable<SocialListItem> GetSocialByCategory(SocialCategory category)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var socials = ctx.Socials.Where(e => e.CategoryType.Equals(category)).ToList();
-                foreach (var social in socials)
-                {
-                    var foundSocial = new SocialListItem
-                    {
-                        SocialId = social.SocialId,
-                        CategoryType = social.CategoryType,
-                        Title = social.Title,
-                        ResourceType = social.ResourceType,
-                        Url = social.Url,
-                        InPerson = social.InPerson
-                    };
-                    searchResults.Add(foundSocial);
-                }
-                return searchResults;
+                var categories =
+                    ctx
+                        .Socials
+                        .Where(e => e.CategoryType == category)
+                        .Select(
+                            e =>
+                                new SocialListItem
+                                {
+                                    SocialId = e.SocialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return categories.ToArray();
+            }
+        }
+
+        public IEnumerable<SocialListItem> GetSocialByResource(Resource resource)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Socials
+                        .Where(e => e.ResourceType == resource)
+                        .Select(
+                            e =>
+                                new SocialListItem
+                                {
+                                    SocialId = e.SocialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<SocialListItem> GetSocialByTitle(string title)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Socials
+                        .Where(e => e.Title.Contains(title))
+                        .Select(
+                            e =>
+                                new SocialListItem
+                                {
+                                    SocialId = e.SocialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<SocialListItem> GetSocialByUrl(string url)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Socials
+                        .Where(e => e.Url.Contains(url))
+                        .Select(
+                            e =>
+                                new SocialListItem
+                                {
+                                    SocialId = e.SocialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<SocialListItem> GetSocialByInPerson()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Socials
+                        .Where(e => e.InPerson == true)
+                        .Select(
+                            e =>
+                                new SocialListItem
+                                {
+                                    SocialId = e.SocialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
             }
         }
 
@@ -123,8 +249,11 @@ namespace whatUneed.Services
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
                 entity.Description = model.Description;
-                entity.Url = model.Url;
+                entity.City = model.City;
+                entity.State = model.State;
                 entity.InPerson = model.InPerson;
+                entity.AddToFavorites = model.AddToFavorites;
+                entity.Url = model.Url;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

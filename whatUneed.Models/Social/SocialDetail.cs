@@ -22,10 +22,18 @@ namespace whatUneed.Models.Social
 
         public string Description { get; set; }
 
+        public string City { get; set; }
+
+        public State State { get; set; }
+
+        [Display(Name = "In Person")]
+        public bool InPerson { get; set; }
+
+        [Display(Name = "Added To Favorites")]
+        public bool AddToFavorites { get; set; }
+
         [Display(Name = "URL")]
         public string Url { get; set; }
-
-        public bool InPerson { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

@@ -42,8 +42,8 @@ namespace whatUneed.WebMVC.Controllers
 
                     if (title == null)
                     {
-                            var per = service.GetEmotionalByInPerson();
-                            return View(per);
+                        var per = service.GetEmotionalByInPerson();
+                        return View(per);
                     }
                     return View(til);
                 }

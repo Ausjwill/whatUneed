@@ -11,7 +11,6 @@ namespace whatUneed.Services
     public class FinancialService
     {
         private readonly Guid _userId;
-        readonly List<FinancialListItem> searchResults = new List<FinancialListItem>();
 
         public FinancialService(Guid userId)
         {
@@ -28,6 +27,10 @@ namespace whatUneed.Services
                     Title = model.Title,
                     ResourceType = model.ResourceType,
                     Description = model.Description,
+                    City = model.City,
+                    State = model.State,
+                    InPerson = model.InPerson,
+                    AddToFavorites = model.AddToFavorites,
                     Url = model.Url,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -55,7 +58,11 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
                                 }
                         );
 
@@ -79,6 +86,10 @@ namespace whatUneed.Services
                         Title = entity.Title,
                         ResourceType = entity.ResourceType,
                         Description = entity.Description,
+                        City = entity.City,
+                        State = entity.State,
+                        InPerson = entity.InPerson,
+                        AddToFavorites = entity.AddToFavorites,
                         Url = entity.Url,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
@@ -86,24 +97,143 @@ namespace whatUneed.Services
             }
         }
 
-        public List<FinancialListItem> GetFinancialByCategory(string category)
+        public IEnumerable<FinancialListItem> GetFinancialByCategory(FinancialCategory category)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var financials = ctx.Financials.Where(e => e.CategoryType.Equals(category)).ToList();
-                foreach (var financial in financials)
-                {
-                    var foundFinancial = new FinancialListItem
-                    {
-                        FinancialId = financial.FinancialId,
-                        CategoryType = financial.CategoryType,
-                        Title = financial.Title,
-                        ResourceType = financial.ResourceType,
-                        Url = financial.Url,
-                    };
-                    searchResults.Add(foundFinancial);
-                }
-                return searchResults;
+                var categories =
+                    ctx
+                        .Financials
+                        .Where(e => e.CategoryType == category)
+                        .Select(
+                            e =>
+                                new FinancialListItem
+                                {
+                                    FinancialId = e.FinancialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return categories.ToArray();
+            }
+        }
+
+        public IEnumerable<FinancialListItem> GetFinancialByResource(Resource resource)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Financials
+                        .Where(e => e.ResourceType == resource)
+                        .Select(
+                            e =>
+                                new FinancialListItem
+                                {
+                                    FinancialId = e.FinancialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<FinancialListItem> GetFinancialByTitle(string title)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Financials
+                        .Where(e => e.Title.Contains(title))
+                        .Select(
+                            e =>
+                                new FinancialListItem
+                                {
+                                    FinancialId = e.FinancialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<FinancialListItem> GetFinancialByUrl(string url)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Financials
+                        .Where(e => e.Url.Contains(url))
+                        .Select(
+                            e =>
+                                new FinancialListItem
+                                {
+                                    FinancialId = e.FinancialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<FinancialListItem> GetFinancialByInPerson()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Financials
+                        .Where(e => e.InPerson == true)
+                        .Select(
+                            e =>
+                                new FinancialListItem
+                                {
+                                    FinancialId = e.FinancialId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
             }
         }
 
@@ -119,6 +249,10 @@ namespace whatUneed.Services
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
                 entity.Description = model.Description;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.InPerson = model.InPerson;
+                entity.AddToFavorites = model.AddToFavorites;
                 entity.Url = model.Url;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

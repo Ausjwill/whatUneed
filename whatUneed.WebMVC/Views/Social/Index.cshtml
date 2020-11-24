@@ -21,58 +21,78 @@
     </div>
 }
 
-@*<table class="search_table">
-        @Html.Partial("_Search_By_Category")
-        @Html.Partial("_Search_By_ResourceType")
-    </table>*@
+<h4>Search by:</h4>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ResourceType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InPerson)
-        </th>
-        <th></th>
-    </tr>
+@Html.Partial("_Search")
+
+@Html.ActionLink("Back to List", "Index")
+
+<br />
+<br />
+<br />
+
+<table class="table table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResourceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddToFavorites)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryType)
+                @Html.ActionLink($"{item.CategoryType}", "Details", new { id = item.SocialId }, null)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.ActionLink($"{item.Title}", "Details", new { id = item.SocialId }, null)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ResourceType)
+                @Html.ActionLink($"{item.ResourceType}", "Details", new { id = item.SocialId }, null)
             </td>
             <td>
-                <a href="
-           @Html.DisplayFor(modelItem => item.Url)
-           "
-                   target="blank">
-                    @Html.DisplayFor(modelItem => item.Url)
-                </a>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.InPerson)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.SocialId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SocialId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SocialId })
+                @Html.DisplayFor(modelItem => item.AddToFavorites)
+            </td>
+            <td>
+                <a href="
+               @Html.DisplayFor(modelItem => item.Url)
+               "
+                   target="blank">
+                    @Html.DisplayFor(modelItem => item.Url)
+                </a>
             </td>
         </tr>
     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using whatUneed.Data;
 using whatUneed.Models.Financial;
 using whatUneed.Services;
 
@@ -21,6 +22,34 @@ namespace whatUneed.WebMVC.Controllers
             var model = service.GetFinancials();
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string categoryType, string resourceType, string title)
+        {
+            var service = CreateFinancialService();
+            Enum.TryParse($"{categoryType}", out FinancialCategory category);
+            var cat = service.GetFinancialByCategory(category);
+
+            if (category == 0)
+            {
+                Enum.TryParse($"{resourceType}", out Resource resource);
+                var res = service.GetFinancialByResource(resource);
+
+                if (resource == 0)
+                {
+                    var til = service.GetFinancialByTitle(title);
+
+                    if (title == null)
+                    {
+                        var per = service.GetFinancialByInPerson();
+                        return View(per);
+                    }
+                    return View(til);
+                }
+                return View(res);
+            }
+            return View(cat);
         }
 
         //GET: Financial/Create
@@ -47,15 +76,6 @@ namespace whatUneed.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult GetByCategory(string category)
-        {
-            FinancialService financialService = CreateFinancialService();
-            var financial = financialService.GetFinancialByCategory(category);
-
-            if (financial.Count == 0) ModelState.AddModelError("", "Category not found.");
-            return View(financial);
-        }
-
         public ActionResult Details(int id)
         {
             var svc = CreateFinancialService();
@@ -76,7 +96,11 @@ namespace whatUneed.WebMVC.Controllers
                     Title = detail.Title,
                     ResourceType = detail.ResourceType,
                     Description = detail.Description,
-                    Url = detail.Url
+                    City = detail.City,
+                    State = detail.State,
+                    InPerson = detail.InPerson,
+                    AddToFavorites = detail.AddToFavorites,
+                    Url = detail.Url,
                 };
             return View(model);
         }

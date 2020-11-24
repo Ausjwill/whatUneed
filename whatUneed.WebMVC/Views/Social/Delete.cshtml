@@ -4,11 +4,16 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Are you sure you want to delete <strong>@Html.DisplayFor(model => model.Title)</strong>?</h2>
 
-<h3>Are you sure you want to delete this resource?</h3>
 <div>
+
     <hr />
+
+    <h4>@Html.DisplayFor(model => model.Description)</h4>
+
+    <hr />
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CategoryType)
@@ -18,25 +23,34 @@
             @Html.DisplayFor(model => model.CategoryType)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.ResourceType)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ResourceType)
         </dd>
+
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Location
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InPerson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AddToFavorites)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddToFavorites)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Url)
@@ -49,13 +63,6 @@
                target="blank">
                 @Html.DisplayFor(model => model.Url)
             </a>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.InPerson)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InPerson)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.CreatedUtc)

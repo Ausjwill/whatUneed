@@ -20,6 +20,16 @@ namespace whatUneed.Models.Financial
         [Display(Name = "Resource Type")]
         public Resource ResourceType { get; set; }
 
+        public string City { get; set; }
+
+        public State State { get; set; }
+
+        [Display(Name = "In Person")]
+        public bool InPerson { get; set; }
+
+        [Display(Name = "Favorites")]
+        public bool AddToFavorites { get; set; }
+
         [Display(Name = "URL")]
         public string Url { get; set; }
     }

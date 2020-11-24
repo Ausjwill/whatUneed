@@ -28,6 +28,14 @@ namespace whatUneed.Data
         [Required]
         public string Description { get; set; }
 
+        public string City { get; set; }
+
+        public State State { get; set; }
+
+        public bool InPerson { get; set; }
+
+        public bool AddToFavorites { get; set; }
+
         public string Url { get; set; }
 
         [Required]

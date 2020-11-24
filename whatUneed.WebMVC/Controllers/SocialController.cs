@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using whatUneed.Data;
 using whatUneed.Models.Social;
 using whatUneed.Services;
 
@@ -21,6 +22,34 @@ namespace whatUneed.WebMVC.Controllers
             var model = service.GetSocials();
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string categoryType, string resourceType, string title)
+        {
+            var service = CreateSocialService();
+            Enum.TryParse($"{categoryType}", out SocialCategory category);
+            var cat = service.GetSocialByCategory(category);
+
+            if (category == 0)
+            {
+                Enum.TryParse($"{resourceType}", out Resource resource);
+                var res = service.GetSocialByResource(resource);
+
+                if (resource == 0)
+                {
+                    var til = service.GetSocialByTitle(title);
+
+                    if (title == null)
+                    {
+                        var per = service.GetSocialByInPerson();
+                        return View(per);
+                    }
+                    return View(til);
+                }
+                return View(res);
+            }
+            return View(cat);
         }
 
         //GET: Social/Create
@@ -47,15 +76,6 @@ namespace whatUneed.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult GetByCategory(string category)
-        {
-            SocialService socialService = CreateSocialService();
-            var social = socialService.GetSocialByCategory(category);
-
-            if (social.Count == 0) ModelState.AddModelError("", "Category not found.");
-            return View(social);
-        }
-
         public ActionResult Details(int id)
         {
             var svc = CreateSocialService();
@@ -76,8 +96,11 @@ namespace whatUneed.WebMVC.Controllers
                     Title = detail.Title,
                     ResourceType = detail.ResourceType,
                     Description = detail.Description,
+                    City = detail.City,
+                    State = detail.State,
+                    InPerson = detail.InPerson,
+                    AddToFavorites = detail.AddToFavorites,
                     Url = detail.Url,
-                    InPerson = detail.InPerson
                 };
             return View(model);
         }

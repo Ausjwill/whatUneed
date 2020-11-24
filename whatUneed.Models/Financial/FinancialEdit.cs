@@ -30,6 +30,16 @@ namespace whatUneed.Models.Financial
         [MaxLength(5000)]
         public string Description { get; set; }
 
+        public string City { get; set; }
+
+        public State State { get; set; }
+
+        [Display(Name = "In Person")]
+        public bool InPerson { get; set; }
+
+        [Display(Name = "Add To Favorites")]
+        public bool AddToFavorites { get; set; }
+
         [Url]
         [Display(Name = "URL https://example.com")]
         public string Url { get; set; }

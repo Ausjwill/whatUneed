@@ -11,7 +11,6 @@ namespace whatUneed.Services
     public class PhysicalService
     {
         private readonly Guid _userId;
-        readonly List<PhysicalListItem> searchResults = new List<PhysicalListItem>();
 
         public PhysicalService(Guid userId)
         {
@@ -28,6 +27,10 @@ namespace whatUneed.Services
                     Title = model.Title,
                     ResourceType = model.ResourceType,
                     Description = model.Description,
+                    City = model.City,
+                    State = model.State,
+                    InPerson = model.InPerson,
+                    AddToFavorites = model.AddToFavorites,
                     Url = model.Url,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -55,7 +58,11 @@ namespace whatUneed.Services
                                     CategoryType = e.CategoryType,
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
-                                    Url = e.Url
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
                                 }
                         );
 
@@ -79,6 +86,10 @@ namespace whatUneed.Services
                         Title = entity.Title,
                         ResourceType = entity.ResourceType,
                         Description = entity.Description,
+                        City = entity.City,
+                        State = entity.State,
+                        InPerson = entity.InPerson,
+                        AddToFavorites = entity.AddToFavorites,
                         Url = entity.Url,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
@@ -86,24 +97,143 @@ namespace whatUneed.Services
             }
         }
 
-        public List<PhysicalListItem> GetPhysicalByCategory(string category)
+        public IEnumerable<PhysicalListItem> GetPhysicalByCategory(PhysicalCategory category)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var physicals = ctx.Physicals.Where(e => e.CategoryType.Equals(category)).ToList();
-                foreach (var physical in physicals)
-                {
-                    var foundPhysical = new PhysicalListItem
-                    {
-                        PhysicalId = physical.PhysicalId,
-                        CategoryType = physical.CategoryType,
-                        Title = physical.Title,
-                        ResourceType = physical.ResourceType,
-                        Url = physical.Url,
-                    };
-                    searchResults.Add(foundPhysical);
-                }
-                return searchResults;
+                var categories =
+                    ctx
+                        .Physicals
+                        .Where(e => e.CategoryType == category)
+                        .Select(
+                            e =>
+                                new PhysicalListItem
+                                {
+                                    PhysicalId = e.PhysicalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return categories.ToArray();
+            }
+        }
+
+        public IEnumerable<PhysicalListItem> GetPhysicalByResource(Resource resource)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Physicals
+                        .Where(e => e.ResourceType == resource)
+                        .Select(
+                            e =>
+                                new PhysicalListItem
+                                {
+                                    PhysicalId = e.PhysicalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<PhysicalListItem> GetPhysicalByTitle(string title)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Physicals
+                        .Where(e => e.Title.Contains(title))
+                        .Select(
+                            e =>
+                                new PhysicalListItem
+                                {
+                                    PhysicalId = e.PhysicalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<PhysicalListItem> GetPhysicalByUrl(string url)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Physicals
+                        .Where(e => e.Url.Contains(url))
+                        .Select(
+                            e =>
+                                new PhysicalListItem
+                                {
+                                    PhysicalId = e.PhysicalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
+            }
+        }
+
+        public IEnumerable<PhysicalListItem> GetPhysicalByInPerson()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resources =
+                    ctx
+                        .Physicals
+                        .Where(e => e.InPerson == true)
+                        .Select(
+                            e =>
+                                new PhysicalListItem
+                                {
+                                    PhysicalId = e.PhysicalId,
+                                    CategoryType = e.CategoryType,
+                                    Title = e.Title,
+                                    ResourceType = e.ResourceType,
+                                    City = e.City,
+                                    State = e.State,
+                                    InPerson = e.InPerson,
+                                    AddToFavorites = e.AddToFavorites,
+                                    Url = e.Url,
+                                }
+                        );
+
+                return resources.ToArray();
             }
         }
 
@@ -119,6 +249,10 @@ namespace whatUneed.Services
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
                 entity.Description = model.Description;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.InPerson = model.InPerson;
+                entity.AddToFavorites = model.AddToFavorites;
                 entity.Url = model.Url;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

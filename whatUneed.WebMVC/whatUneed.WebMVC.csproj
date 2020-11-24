@@ -266,6 +266,9 @@
     <Content Include="Views\Financial\Details.cshtml" />
     <Content Include="Views\Financial\Edit.cshtml" />
     <Content Include="Views\Financial\Delete.cshtml" />
+    <Content Include="Views\Financial\_Search.cshtml" />
+    <Content Include="Views\Physical\_Search.cshtml" />
+    <Content Include="Views\Social\_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

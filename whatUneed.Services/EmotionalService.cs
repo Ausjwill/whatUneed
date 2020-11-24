@@ -11,7 +11,6 @@ namespace whatUneed.Services
     public class EmotionalService
     {
         private readonly Guid _userId;
-        readonly List<EmotionalListItem> searchResults = new List<EmotionalListItem>();
 
         public EmotionalService(Guid userId)
         {
@@ -143,6 +142,7 @@ namespace whatUneed.Services
                                     Title = e.Title,
                                     ResourceType = e.ResourceType,
                                     City = e.City,
+                                    State = e.State,
                                     InPerson = e.InPerson,
                                     AddToFavorites = e.AddToFavorites,
                                     Url = e.Url,
