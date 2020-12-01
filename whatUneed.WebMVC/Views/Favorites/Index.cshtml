@@ -64,13 +64,13 @@
     {
         <tr>
             <td>
-                @Html.ActionLink($"{item.EmotionalCategoryType}", "EmotionalDetails", new { id = item.EmotionalId }, null)
+                @Html.DisplayFor(modelItem => item.EmotionalCategoryType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EmotionalTitle)
             </td>
             <td>
-                @Html.ActionLink($"{item.EmotionalResourceType}", "EmotionalDetails", new { id = item.EmotionalId }, null)
+                @Html.DisplayFor(modelItem => item.EmotionalResourceType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EmotionalCity)
@@ -91,6 +91,11 @@
                    target="blank">
                     @Html.DisplayFor(modelItem => item.EmotionalUrl)
                 </a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmotionalId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmotionalId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmotionalId })
             </td>
         </tr>
     }
@@ -138,13 +143,13 @@
     {
         <tr>
             <td>
-                @Html.ActionLink($"{item.PhysicalCategoryType}", "PhysicalDetails", new { id = item.PhysicalId }, null)
+                @Html.DisplayFor(modelItem => item.PhysicalCategoryType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PhysicalTitle)
             </td>
             <td>
-                @Html.ActionLink($"{item.PhysicalResourceType}", "PhysicalDetails", new { id = item.PhysicalId }, null)
+                @Html.DisplayFor(modelItem => item.PhysicalResourceType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PhysicalCity)
@@ -165,6 +170,11 @@
                    target="blank">
                     @Html.DisplayFor(modelItem => item.PhysicalUrl)
                 </a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PhysicalId }) |
+                @Html.ActionLink("Details", "PhysicalDetails", new { id = item.PhysicalId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PhysicalId })
             </td>
         </tr>
     }
@@ -212,13 +222,13 @@
     {
         <tr>
             <td>
-                @Html.ActionLink($"{item.SocialCategoryType}", "SocialDetails", new { id = item.SocialId }, null)
+                @Html.DisplayFor(modelItem => item.SocialCategoryType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SocialTitle)
             </td>
             <td>
-                @Html.ActionLink($"{item.SocialResourceType}", "SocialDetails", new { id = item.SocialId }, null)
+                @Html.DisplayFor(modelItem => item.SocialResourceType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SocialCity)
@@ -239,6 +249,11 @@
                    target="blank">
                     @Html.DisplayFor(modelItem => item.SocialUrl)
                 </a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SocialId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SocialId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SocialId })
             </td>
         </tr>
     }
@@ -286,13 +301,13 @@
     {
         <tr>
             <td>
-                @Html.ActionLink($"{item.FinancialCategoryType}", "FinancialDetails", new { id = item.FinancialId }, null)
+                @Html.DisplayFor(modelItem => item.FinancialCategoryType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FinancialTitle)
             </td>
             <td>
-                @Html.ActionLink($"{item.FinancialResourceType}", "FinancialDetails", new { id = item.FinancialId }, null)
+                @Html.DisplayFor(modelItem => item.FinancialResourceType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FinancialCity)
@@ -313,6 +328,11 @@
                    target="blank">
                     @Html.DisplayFor(modelItem => item.FinancialUrl)
                 </a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FinancialId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FinancialId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FinancialId })
             </td>
         </tr>
     }
