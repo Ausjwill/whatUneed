@@ -33,5 +33,7 @@ namespace whatUneed.Data
         [ForeignKey(nameof(Financial))]
         public int? FinancialId { get; set; }
         public virtual Financial Financial { get; set; }
+
+        public bool AddToFavorites { get; set; }
     }
 }

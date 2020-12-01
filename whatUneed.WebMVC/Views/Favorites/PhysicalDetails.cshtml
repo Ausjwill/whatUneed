@@ -1,0 +1,89 @@
+﻿@model whatUneed.Models.Favorites.FavoritesDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2><strong>@Html.DisplayFor(model => model.PhysicalTitle)</strong></h2>
+
+<div>
+
+    <hr />
+
+    <h4>@Html.DisplayFor(model => model.PhysicalDescription)</h4>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalCategoryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCategoryType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalResourceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalResourceType)
+        </dd>
+
+        <dt>
+            Location
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCity), @Html.DisplayFor(model => model.PhysicalState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalInPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalInPerson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalAddToFavorites)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalAddToFavorites)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalUrl)
+        </dt>
+
+        <dd>
+            <a href="
+           @Html.DisplayFor(model => model.PhysicalUrl)
+           "
+               target="blank">
+                @Html.DisplayFor(model => model.PhysicalUrl)
+            </a>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalCreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhysicalId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.PhysicalId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

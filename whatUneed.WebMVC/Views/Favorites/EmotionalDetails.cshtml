@@ -1,0 +1,89 @@
+﻿@model whatUneed.Models.Favorites.FavoritesDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2><strong>@Html.DisplayFor(model => model.EmotionalTitle)</strong></h2>
+
+<div>
+
+    <hr />
+
+    <h4>@Html.DisplayFor(model => model.EmotionalDescription)</h4>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionalCategoryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionalCategoryType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionalResourceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionalResourceType)
+        </dd>
+
+        <dt>
+            Location
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionalCity), @Html.DisplayFor(model => model.EmotionalState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionalInPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionalInPerson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionalAddToFavorites)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionalAddToFavorites)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionalUrl)
+        </dt>
+
+        <dd>
+            <a href="
+           @Html.DisplayFor(model => model.EmotionalUrl)
+           "
+               target="blank">
+                @Html.DisplayFor(model => model.EmotionalUrl)
+            </a>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionalCreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionalCreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionalModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionalModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmotionalId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.EmotionalId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

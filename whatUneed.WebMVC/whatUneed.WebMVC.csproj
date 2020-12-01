@@ -272,6 +272,11 @@
     <Content Include="Views\Social\_Search.cshtml" />
     <Content Include="Views\Favorites\Index.cshtml" />
     <Content Include="Views\Favorites\_Search.cshtml" />
+    <Content Include="Views\Favorites\EmotionalDetails.cshtml" />
+    <Content Include="Views\Favorites\PhysicalDetails.cshtml" />
+    <Content Include="Views\Favorites\SocialDetails.cshtml" />
+    <Content Include="Views\Favorites\FinancialDetails.cshtml" />
+    <Content Include="Views\Physical\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,89 @@
+﻿@model whatUneed.Models.Favorites.FavoritesDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2><strong>@Html.DisplayFor(model => model.FinancialTitle)</strong></h2>
+
+<div>
+
+    <hr />
+
+    <h4>@Html.DisplayFor(model => model.FinancialDescription)</h4>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialCategoryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialCategoryType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialResourceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialResourceType)
+        </dd>
+
+        <dt>
+            Location
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialCity), @Html.DisplayFor(model => model.FinancialState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialInPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialInPerson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialAddToFavorites)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialAddToFavorites)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialUrl)
+        </dt>
+
+        <dd>
+            <a href="
+           @Html.DisplayFor(model => model.FinancialUrl)
+           "
+               target="blank">
+                @Html.DisplayFor(model => model.FinancialUrl)
+            </a>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialCreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialCreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinancialModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinancialModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FinancialId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.FinancialId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

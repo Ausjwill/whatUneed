@@ -27,20 +27,34 @@
 <br />
 <br />
 
+<h3>Emotional</h3>
+
 <table class="table table-condensed table-hover table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.EmotionalId)
+                @Html.DisplayNameFor(model => model.EmotionalCategoryType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhysicalId)
+                @Html.DisplayNameFor(model => model.EmotionalTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SocialId)
+                @Html.DisplayNameFor(model => model.EmotionalResourceType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FinancialId)
+                @Html.DisplayNameFor(model => model.EmotionalCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmotionalState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmotionalInPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmotionalAddToFavorites)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmotionalUrl)
             </th>
             <th></th>
         </tr>
@@ -50,16 +64,255 @@
     {
         <tr>
             <td>
-                @Html.ActionLink($"{item.EmotionalId}", "Details", new { id = item.EmotionalId }, null)
+                @Html.ActionLink($"{item.EmotionalCategoryType}", "EmotionalDetails", new { id = item.EmotionalId }, null)
             </td>
             <td>
-                @Html.ActionLink($"{item.PhysicalId}", "Details", new { id = item.PhysicalId }, null)
+                @Html.DisplayFor(modelItem => item.EmotionalTitle)
             </td>
             <td>
-                @Html.ActionLink($"{item.SocialId}", "Details", new { id = item.SocialId }, null)
+                @Html.ActionLink($"{item.EmotionalResourceType}", "EmotionalDetails", new { id = item.EmotionalId }, null)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FinancialId)
+                @Html.DisplayFor(modelItem => item.EmotionalCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmotionalState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmotionalInPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmotionalAddToFavorites)
+            </td>
+            <td>
+                <a href="
+               @Html.DisplayFor(modelItem => item.EmotionalUrl)
+               "
+                   target="blank">
+                    @Html.DisplayFor(modelItem => item.EmotionalUrl)
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<br />
+<br />
+
+<h3>Physical</h3>
+
+<table class="table table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalCategoryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalResourceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalInPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalAddToFavorites)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink($"{item.PhysicalCategoryType}", "PhysicalDetails", new { id = item.PhysicalId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalTitle)
+            </td>
+            <td>
+                @Html.ActionLink($"{item.PhysicalResourceType}", "PhysicalDetails", new { id = item.PhysicalId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalInPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalAddToFavorites)
+            </td>
+            <td>
+                <a href="
+               @Html.DisplayFor(modelItem => item.PhysicalUrl)
+               "
+                   target="blank">
+                    @Html.DisplayFor(modelItem => item.PhysicalUrl)
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<br />
+<br />
+
+<h3>Social</h3>
+
+<table class="table table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialCategoryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialResourceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialInPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialAddToFavorites)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink($"{item.SocialCategoryType}", "SocialDetails", new { id = item.SocialId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialTitle)
+            </td>
+            <td>
+                @Html.ActionLink($"{item.SocialResourceType}", "SocialDetails", new { id = item.SocialId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialInPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialAddToFavorites)
+            </td>
+            <td>
+                <a href="
+               @Html.DisplayFor(modelItem => item.SocialUrl)
+               "
+                   target="blank">
+                    @Html.DisplayFor(modelItem => item.SocialUrl)
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<br />
+<br />
+
+<h3>Financial</h3>
+
+<table class="table table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialCategoryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialResourceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialInPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialAddToFavorites)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinancialUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink($"{item.FinancialCategoryType}", "FinancialDetails", new { id = item.FinancialId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinancialTitle)
+            </td>
+            <td>
+                @Html.ActionLink($"{item.FinancialResourceType}", "FinancialDetails", new { id = item.FinancialId }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinancialCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinancialState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinancialInPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinancialAddToFavorites)
+            </td>
+            <td>
+                <a href="
+               @Html.DisplayFor(modelItem => item.FinancialUrl)
+               "
+                   target="blank">
+                    @Html.DisplayFor(modelItem => item.FinancialUrl)
+                </a>
             </td>
         </tr>
     }

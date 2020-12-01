@@ -1,10 +1,10 @@
 ﻿@model whatUneed.Models.Physical.PhysicalDetail
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Add";
 }
 
-<h2><strong>@Html.DisplayFor(model => model.Title)</strong></h2>
+<h2>Add <strong>@Html.DisplayFor(model => model.Title)</strong> to your favorites?</h2>
 
 <div>
 
@@ -79,12 +79,19 @@
         <dd>
             @Html.DisplayFor(model => model.ModifiedUtc)
         </dd>
-    </dl>
-</div>
 
-<p>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Add" class="btn btn-default" /> |
     @Html.ActionLink("Edit", "Edit", new { id = Model.PhysicalId }) |
+    @Html.ActionLink("Details", "Details", new { id = Model.PhysicalId }) |
     @Html.ActionLink("Delete", "Delete", new { id = Model.PhysicalId }) |
-    @Html.ActionLink("Add", "Add", new { id = Model.PhysicalId }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
+    }
+</div>

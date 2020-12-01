@@ -153,11 +153,25 @@ namespace whatUneed.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [ActionName("Add")]
+        public ActionResult Add(int id)
+        {
+            var svc = CreatePhysicalService();
+            var model = svc.GetPhysicalById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Add")]
+        [ValidateAntiForgeryToken]
         public ActionResult AddToFavorites(int id)
         {
             var service = CreateFavoriteService();
-            var favorite = new FavoritesCreate();
-            favorite.PhysicalId = id;
+            var favorite = new FavoritesCreate
+            {
+                PhysicalId = id
+            };
             service.CreateFavorites(favorite);
 
             return RedirectToAction("Index");

@@ -19,5 +19,44 @@ namespace whatUneed.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult EmotionalDetails(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesByEmotionalId(id);
+
+            return View(model);
+        }
+
+        public ActionResult PhysicalDetails(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesByPhysicalId(id);
+
+            return View(model);
+        }
+
+        public ActionResult SocialDetails(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesBySocialId(id);
+
+            return View(model);
+        }
+
+        public ActionResult FinancialDetails(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesByFinancialId(id);
+
+            return View(model);
+        }
+
+        private FavoritesService CreateFavoriteService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoritesService(userId);
+            return service;
+        }
     }
 }

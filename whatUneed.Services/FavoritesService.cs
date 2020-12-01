@@ -49,15 +49,166 @@ namespace whatUneed.Services
                                 new FavoritesListItem
                                 {
                                     FavoriteId = e.FavoriteId,
-                                    EmotionalId = e.EmotionalId,
-                                    PhysicalId = e.PhysicalId,
-                                    SocialId = e.SocialId,
-                                    FinancialId = e.FinancialId,
 
+                                    //EMOTIONAL
+                                    EmotionalId = e.EmotionalId,
+                                    EmotionalCategoryType = e.Emotional.CategoryType,
+                                    EmotionalTitle = e.Emotional.Title,
+                                    EmotionalResourceType = e.Emotional.ResourceType,
+                                    EmotionalCity = e.Emotional.City,
+                                    EmotionalState = e.Emotional.State,
+                                    EmotionalInPerson = e.Emotional.InPerson,
+                                    EmotionalAddToFavorites = e.Emotional.AddToFavorites,
+                                    EmotionalUrl = e.Emotional.Url,
+
+                                    //PHYSICAL
+                                    PhysicalId = e.PhysicalId,
+                                    PhysicalCategoryType = e.Physical.CategoryType,
+                                    PhysicalTitle = e.Physical.Title,
+                                    PhysicalResourceType = e.Physical.ResourceType,
+                                    PhysicalCity = e.Physical.City,
+                                    PhysicalState = e.Physical.State,
+                                    PhysicalInPerson = e.Physical.InPerson,
+                                    PhysicalAddToFavorites = e.Physical.AddToFavorites,
+                                    PhysicalUrl = e.Physical.Url,
+
+                                    //SOCIAL
+                                    SocialId = e.SocialId,
+                                    SocialCategoryType = e.Social.CategoryType,
+                                    SocialTitle = e.Social.Title,
+                                    SocialResourceType = e.Social.ResourceType,
+                                    SocialCity = e.Social.City,
+                                    SocialState = e.Social.State,
+                                    SocialInPerson = e.Social.InPerson,
+                                    SocialAddToFavorites = e.Social.AddToFavorites,
+                                    SocialUrl = e.Social.Url,
+
+                                    //FINANCIAL
+                                    FinancialId = e.FinancialId,
+                                    FinancialCategoryType = e.Financial.CategoryType,
+                                    FinancialTitle = e.Financial.Title,
+                                    FinancialResourceType = e.Financial.ResourceType,
+                                    FinancialCity = e.Financial.City,
+                                    FinancialState = e.Financial.State,
+                                    FinancialInPerson = e.Financial.InPerson,
+                                    FinancialAddToFavorites = e.Financial.AddToFavorites,
+                                    FinancialUrl = e.Financial.Url,
                                 }
                         );
 
                 return query.ToArray();
+            }
+        }
+
+        public FavoritesDetail GetFavoritesByEmotionalId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.EmotionalId == id);
+                return
+                    new FavoritesDetail
+                    {
+                        FavoriteId = entity.FavoriteId,
+                        EmotionalId = entity.EmotionalId,
+                        EmotionalCategoryType = entity.Emotional.CategoryType,
+                        EmotionalTitle = entity.Emotional.Title,
+                        EmotionalResourceType = entity.Emotional.ResourceType,
+                        EmotionalDescription = entity.Emotional.Description,
+                        EmotionalCity = entity.Emotional.City,
+                        EmotionalState = entity.Emotional.State,
+                        EmotionalInPerson = entity.Emotional.InPerson,
+                        EmotionalAddToFavorites = entity.Emotional.AddToFavorites,
+                        EmotionalUrl = entity.Emotional.Url,
+                        EmotionalCreatedUtc = entity.Emotional.CreatedUtc,
+                        EmotionalModifiedUtc = entity.Emotional.ModifiedUtc,
+                    };
+            }
+        }
+
+        public FavoritesDetail GetFavoritesByPhysicalId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.PhysicalId == id);
+                return
+                    new FavoritesDetail
+                    {
+                        FavoriteId = entity.FavoriteId,
+                        PhysicalId = entity.PhysicalId,
+                        PhysicalCategoryType = entity.Physical.CategoryType,
+                        PhysicalTitle = entity.Physical.Title,
+                        PhysicalResourceType = entity.Physical.ResourceType,
+                        PhysicalDescription = entity.Physical.Description,
+                        PhysicalCity = entity.Physical.City,
+                        PhysicalState = entity.Physical.State,
+                        PhysicalInPerson = entity.Physical.InPerson,
+                        PhysicalAddToFavorites = entity.Physical.AddToFavorites,
+                        PhysicalUrl = entity.Physical.Url,
+                        PhysicalCreatedUtc = entity.Physical.CreatedUtc,
+                        PhysicalModifiedUtc = entity.Physical.ModifiedUtc,
+                    };
+            }
+        }
+
+        public FavoritesDetail GetFavoritesBySocialId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.SocialId == id);
+                return
+                    new FavoritesDetail
+                    {
+                        FavoriteId = entity.FavoriteId,
+                        SocialId = entity.SocialId,
+                        SocialCategoryType = entity.Social.CategoryType,
+                        SocialTitle = entity.Social.Title,
+                        SocialResourceType = entity.Social.ResourceType,
+                        SocialDescription = entity.Social.Description,
+                        SocialCity = entity.Social.City,
+                        SocialState = entity.Social.State,
+                        SocialInPerson = entity.Social.InPerson,
+                        SocialAddToFavorites = entity.Social.AddToFavorites,
+                        SocialUrl = entity.Social.Url,
+                        SocialCreatedUtc = entity.Social.CreatedUtc,
+                        SocialModifiedUtc = entity.Social.ModifiedUtc,
+                    };
+            }
+        }
+
+        public FavoritesDetail GetFavoritesByFinancialId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.FinancialId == id);
+                return
+                    new FavoritesDetail
+                    {
+                        FavoriteId = entity.FavoriteId,
+                        FinancialId = entity.FinancialId,
+                        FinancialCategoryType = entity.Financial.CategoryType,
+                        FinancialTitle = entity.Financial.Title,
+                        FinancialResourceType = entity.Financial.ResourceType,
+                        FinancialDescription = entity.Financial.Description,
+                        FinancialCity = entity.Financial.City,
+                        FinancialState = entity.Financial.State,
+                        FinancialInPerson = entity.Financial.InPerson,
+                        FinancialAddToFavorites = entity.Financial.AddToFavorites,
+                        FinancialUrl = entity.Financial.Url,
+                        FinancialCreatedUtc = entity.Financial.CreatedUtc,
+                        FinancialModifiedUtc = entity.Financial.ModifiedUtc,
+                    };
             }
         }
 
@@ -75,10 +226,14 @@ namespace whatUneed.Services
                                 {
                                     FavoriteId = e.FavoriteId,
                                     EmotionalId = e.EmotionalId,
-                                    PhysicalId = e.PhysicalId,
-                                    SocialId = e.SocialId,
-                                    FinancialId = e.FinancialId,
-
+                                    EmotionalCategoryType = e.Emotional.CategoryType,
+                                    EmotionalTitle = e.Emotional.Title,
+                                    EmotionalResourceType = e.Emotional.ResourceType,
+                                    EmotionalCity = e.Emotional.City,
+                                    EmotionalState = e.Emotional.State,
+                                    EmotionalInPerson = e.Emotional.InPerson,
+                                    EmotionalAddToFavorites = e.Emotional.AddToFavorites,
+                                    EmotionalUrl = e.Emotional.Url,
                                 }
                         );
 
@@ -99,11 +254,15 @@ namespace whatUneed.Services
                                 new FavoritesListItem
                                 {
                                     FavoriteId = e.FavoriteId,
-                                    EmotionalId = e.EmotionalId,
                                     PhysicalId = e.PhysicalId,
-                                    SocialId = e.SocialId,
-                                    FinancialId = e.FinancialId,
-
+                                    PhysicalCategoryType = e.Physical.CategoryType,
+                                    PhysicalTitle = e.Physical.Title,
+                                    PhysicalResourceType = e.Physical.ResourceType,
+                                    PhysicalCity = e.Physical.City,
+                                    PhysicalState = e.Physical.State,
+                                    PhysicalInPerson = e.Physical.InPerson,
+                                    PhysicalAddToFavorites = e.Physical.AddToFavorites,
+                                    PhysicalUrl = e.Physical.Url,
                                 }
                         );
 
@@ -124,11 +283,15 @@ namespace whatUneed.Services
                                 new FavoritesListItem
                                 {
                                     FavoriteId = e.FavoriteId,
-                                    EmotionalId = e.EmotionalId,
-                                    PhysicalId = e.PhysicalId,
                                     SocialId = e.SocialId,
-                                    FinancialId = e.FinancialId,
-
+                                    SocialCategoryType = e.Social.CategoryType,
+                                    SocialTitle = e.Social.Title,
+                                    SocialResourceType = e.Social.ResourceType,
+                                    SocialCity = e.Social.City,
+                                    SocialState = e.Social.State,
+                                    SocialInPerson = e.Social.InPerson,
+                                    SocialAddToFavorites = e.Social.AddToFavorites,
+                                    SocialUrl = e.Social.Url,
                                 }
                         );
 
@@ -149,11 +312,15 @@ namespace whatUneed.Services
                                 new FavoritesListItem
                                 {
                                     FavoriteId = e.FavoriteId,
-                                    EmotionalId = e.EmotionalId,
-                                    PhysicalId = e.PhysicalId,
-                                    SocialId = e.SocialId,
                                     FinancialId = e.FinancialId,
-
+                                    FinancialCategoryType = e.Financial.CategoryType,
+                                    FinancialTitle = e.Financial.Title,
+                                    FinancialResourceType = e.Financial.ResourceType,
+                                    FinancialCity = e.Financial.City,
+                                    FinancialState = e.Financial.State,
+                                    FinancialInPerson = e.Financial.InPerson,
+                                    FinancialAddToFavorites = e.Financial.AddToFavorites,
+                                    FinancialUrl = e.Financial.Url,
                                 }
                         );
 
