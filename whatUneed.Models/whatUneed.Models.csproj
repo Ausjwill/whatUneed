@@ -58,6 +58,10 @@
     <Compile Include="Emotional\EmotionalCreate.cs" />
     <Compile Include="Emotional\EmotionalListItem.cs" />
     <Compile Include="Emotional\EmotionalDetail.cs" />
+    <Compile Include="Favorites\FavoritesCreate.cs" />
+    <Compile Include="Favorites\FavoritesDetail.cs" />
+    <Compile Include="Favorites\FavoritesEdit.cs" />
+    <Compile Include="Favorites\FavoritesListItem.cs" />
     <Compile Include="Financial\FinancialCreate.cs" />
     <Compile Include="Financial\FinancialDetail.cs" />
     <Compile Include="Financial\FinancialEdit.cs" />

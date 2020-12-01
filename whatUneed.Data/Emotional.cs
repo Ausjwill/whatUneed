@@ -25,7 +25,7 @@ namespace whatUneed.Data
         public string Title { get; set; }
 
         [Required]
-        public Resource ResourceType{ get;  set; }
+        public Resource ResourceType { get; set; }
 
         [Required]
         public string Description { get; set; }
@@ -44,5 +44,7 @@ namespace whatUneed.Data
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        public virtual ICollection<Favorites> Favorites { get; set; }
     }
 }

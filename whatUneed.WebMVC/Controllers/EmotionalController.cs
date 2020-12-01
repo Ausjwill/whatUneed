@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using whatUneed.Data;
 using whatUneed.Models.Emotional;
+using whatUneed.Models.Favorites;
 using whatUneed.Services;
 
 namespace whatUneed.WebMVC.Controllers
@@ -152,10 +153,27 @@ namespace whatUneed.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AddToFavorites(int id)
+        {
+            var service = CreateFavoriteService();
+            var favorite = new FavoritesCreate();
+            favorite.EmotionalId = id;
+            service.CreateFavorites(favorite);
+
+            return RedirectToAction("Index");
+        }
+
         private EmotionalService CreateEmotionalService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new EmotionalService(userId);
+            return service;
+        }
+
+        private FavoritesService CreateFavoriteService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoritesService(userId);
             return service;
         }
     }

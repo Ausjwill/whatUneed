@@ -36,7 +36,8 @@ namespace whatUneed.Data
         public DbSet<Physical> Physicals { get; set; }
         public DbSet<Social> Socials { get; set; }
         public DbSet<Financial> Financials { get; set; }
-
+        public DbSet<Favorites> Favorites { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

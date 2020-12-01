@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Emotional.cs" />
+    <Compile Include="Favorites.cs" />
     <Compile Include="Financial.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Physical.cs" />

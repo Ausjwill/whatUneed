@@ -7,9 +7,14 @@
         background-position: center;
         background-repeat: no-repeat;">
     <h1>what-U-need</h1>
-    <p class="lead">
-        Welcome! what-U-need is a site designed to help individuals who are seeking self improvement. Whether you are searching for emotional, physical, social, or financial improvement, you are sure to 
-        find the answers here to help set you on the path you want to be on. Check out the links below, and hopefully you will find exactly what you need!
+    <p class="lead" style="        background-color: rgba(300, 300, 300, 0.5);
+        padding-left: 10px;
+        border-radius: 10px;
+        color: rgb(25, 25, 25);">
+
+        Welcome! what-U-need is a space created to help others connect with helpful resources for wellbeing. This is an open community where anyone can get the help they need, as well as share resources for 
+        others to utilize. So whether you're looking for a helpful resource for your life or sharing one for others, what-U-need is a great way to be a part of something that serves others. Have a look around, and 
+        hopefully you'll find what you're looking for to feel connected.
     </p>
     <p>
         @Html.ActionLink("Emotional", "Index", "Emotional") |
@@ -23,25 +28,31 @@
     <div class="col-md-3">
         <h2>Emotional</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Struggling emotionally? You're not alone. This year has been hard for all of us. Here you'll find some great resources to help your overall emotional wellbeing.
         </p>
         <p>@Html.ActionLink("Learn more", "Index", "Emotional", null, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-3">
         <h2>Physical</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p>
+            Our physical wellbeing is equally as important as emotional. Check out these resources to help with anything from exercise and stress-relief to self-care and sleep.
+        </p>
         <p>@Html.ActionLink("Learn more", "Index", "Physical", null, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-3">
         <h2>Social</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p>
+            Probably one of the biggest hurddles we've had to overcome this past year has been social interactions. How do we still engage with others, and how do we do it safely? 
+            Here you'll find some great resources for safe effective interactions.
+        </p>
         <p>@Html.ActionLink("Learn more", "Index", "Social", null, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-3">
         <h2>Financial</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p>
+            Oh finances...utterly important, and yet they can be such a cause of stress in our lives. With so much to think about it can be hard to know where to start. Fortunately,
+            these resources can help make things a bit simpler. Here you'll find help with things like saving, budgeting, wills/trusts, and much more.
+        </p>
         <p>@Html.ActionLink("Learn more", "Index", "Financial", null, new { @class = "btn btn-default" })</p>
     </div>
 
