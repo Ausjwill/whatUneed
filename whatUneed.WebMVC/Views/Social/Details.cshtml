@@ -46,13 +46,6 @@
             @Html.DisplayFor(model => model.InPerson)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.AddToFavorites)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AddToFavorites)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Url)
         </dt>
 
@@ -83,6 +76,7 @@
     </dl>
 </div>
 <p>
+    @Html.ActionLink("Add To Favorites", "Add", new { id = Model.SocialId }) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.SocialId }) |
     @Html.ActionLink("Delete", "Delete", new { id = Model.SocialId }) |
     @Html.ActionLink("Back to List", "Index")

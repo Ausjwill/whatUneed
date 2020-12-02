@@ -1,10 +1,10 @@
 ﻿@model whatUneed.Models.Favorites.FavoritesDetail
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "SocialRemove";
 }
 
-<h2><strong>@Html.DisplayFor(model => model.SocialTitle)</strong></h2>
+<h2>Are you sure you want to remove <strong>@Html.DisplayFor(model => model.SocialTitle)</strong> from your favorites?</h2>
 
 <div>
 
@@ -74,7 +74,14 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Remove" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>

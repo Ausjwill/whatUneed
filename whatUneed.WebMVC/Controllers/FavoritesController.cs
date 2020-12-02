@@ -10,12 +10,10 @@ namespace whatUneed.WebMVC.Controllers
 {
     public class FavoritesController : Controller
     {
-        // GET: Favorites
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FavoritesService(userId);
-            var model = service.GetFavorites();
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavorites();
 
             return View(model);
         }
@@ -50,6 +48,98 @@ namespace whatUneed.WebMVC.Controllers
             var model = svc.GetFavoritesByFinancialId(id);
 
             return View(model);
+        }
+
+        [ActionName("EmotionalRemove")]
+        public ActionResult EmotionalRemove(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesByEmotionalId(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("EmotionalRemove")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmotionalRemovePost(int id)
+        {
+            var service = CreateFavoriteService();
+
+            service.RemoveFavoritesByEmotionalId(id);
+
+            TempData["SaveResult"] = "Successfully removed";
+
+            return RedirectToAction("Index");
+        }
+
+        [ActionName("PhysicalRemove")]
+        public ActionResult PhysicalRemove(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesByPhysicalId(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("PhysicalRemove")]
+        [ValidateAntiForgeryToken]
+        public ActionResult PhysicalRemovePost(int id)
+        {
+            var service = CreateFavoriteService();
+
+            service.RemoveFavoritesByPhysicalId(id);
+
+            TempData["SaveResult"] = "Successfully removed";
+
+            return RedirectToAction("Index");
+        }
+
+        [ActionName("SocialRemove")]
+        public ActionResult SocialRemove(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesBySocialId(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("SocialRemove")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SocialRemovePost(int id)
+        {
+            var service = CreateFavoriteService();
+
+            service.RemoveFavoritesBySocialId(id);
+
+            TempData["SaveResult"] = "Successfully removed";
+
+            return RedirectToAction("Index");
+        }
+
+        [ActionName("FinancialRemove")]
+        public ActionResult FinancialRemove(int id)
+        {
+            var svc = CreateFavoriteService();
+            var model = svc.GetFavoritesByFinancialId(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("FinancialRemove")]
+        [ValidateAntiForgeryToken]
+        public ActionResult FinancialRemovePost(int id)
+        {
+            var service = CreateFavoriteService();
+
+            service.RemoveFavoritesByFinancialId(id);
+
+            TempData["SaveResult"] = "Successfully removed";
+
+            return RedirectToAction("Index");
         }
 
         private FavoritesService CreateFavoriteService()

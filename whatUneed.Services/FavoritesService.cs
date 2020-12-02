@@ -30,6 +30,28 @@ namespace whatUneed.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
+                try
+                {
+                    if (model.EmotionalId != null)
+                    {
+                        var checkForFavorite = ctx.Favorites.Single(e => e.EmotionalId == entity.EmotionalId);
+                    }
+                    if (model.PhysicalId != null)
+                    {
+                        var checkForFavorite = ctx.Favorites.Single(e => e.PhysicalId == entity.PhysicalId);
+                    }
+                    if (model.SocialId != null)
+                    {
+                        var checkForFavorite = ctx.Favorites.Single(e => e.SocialId == entity.SocialId);
+                    }
+                    if (model.FinancialId != null)
+                    {
+                        var checkForFavorite = ctx.Favorites.Single(e => e.FinancialId == entity.FinancialId);
+                    }
+
+                    return false;
+                }
+                catch { }
                 ctx.Favorites.Add(entity);
                 ctx.SaveChanges();
                 return true;
@@ -58,7 +80,6 @@ namespace whatUneed.Services
                                     EmotionalCity = e.Emotional.City,
                                     EmotionalState = e.Emotional.State,
                                     EmotionalInPerson = e.Emotional.InPerson,
-                                    EmotionalAddToFavorites = e.Emotional.AddToFavorites,
                                     EmotionalUrl = e.Emotional.Url,
 
                                     //PHYSICAL
@@ -69,7 +90,6 @@ namespace whatUneed.Services
                                     PhysicalCity = e.Physical.City,
                                     PhysicalState = e.Physical.State,
                                     PhysicalInPerson = e.Physical.InPerson,
-                                    PhysicalAddToFavorites = e.Physical.AddToFavorites,
                                     PhysicalUrl = e.Physical.Url,
 
                                     //SOCIAL
@@ -80,7 +100,6 @@ namespace whatUneed.Services
                                     SocialCity = e.Social.City,
                                     SocialState = e.Social.State,
                                     SocialInPerson = e.Social.InPerson,
-                                    SocialAddToFavorites = e.Social.AddToFavorites,
                                     SocialUrl = e.Social.Url,
 
                                     //FINANCIAL
@@ -91,7 +110,6 @@ namespace whatUneed.Services
                                     FinancialCity = e.Financial.City,
                                     FinancialState = e.Financial.State,
                                     FinancialInPerson = e.Financial.InPerson,
-                                    FinancialAddToFavorites = e.Financial.AddToFavorites,
                                     FinancialUrl = e.Financial.Url,
                                 }
                         );
@@ -120,7 +138,6 @@ namespace whatUneed.Services
                         EmotionalCity = entity.Emotional.City,
                         EmotionalState = entity.Emotional.State,
                         EmotionalInPerson = entity.Emotional.InPerson,
-                        EmotionalAddToFavorites = entity.Emotional.AddToFavorites,
                         EmotionalUrl = entity.Emotional.Url,
                         EmotionalCreatedUtc = entity.Emotional.CreatedUtc,
                         EmotionalModifiedUtc = entity.Emotional.ModifiedUtc,
@@ -148,7 +165,6 @@ namespace whatUneed.Services
                         PhysicalCity = entity.Physical.City,
                         PhysicalState = entity.Physical.State,
                         PhysicalInPerson = entity.Physical.InPerson,
-                        PhysicalAddToFavorites = entity.Physical.AddToFavorites,
                         PhysicalUrl = entity.Physical.Url,
                         PhysicalCreatedUtc = entity.Physical.CreatedUtc,
                         PhysicalModifiedUtc = entity.Physical.ModifiedUtc,
@@ -176,7 +192,6 @@ namespace whatUneed.Services
                         SocialCity = entity.Social.City,
                         SocialState = entity.Social.State,
                         SocialInPerson = entity.Social.InPerson,
-                        SocialAddToFavorites = entity.Social.AddToFavorites,
                         SocialUrl = entity.Social.Url,
                         SocialCreatedUtc = entity.Social.CreatedUtc,
                         SocialModifiedUtc = entity.Social.ModifiedUtc,
@@ -204,7 +219,6 @@ namespace whatUneed.Services
                         FinancialCity = entity.Financial.City,
                         FinancialState = entity.Financial.State,
                         FinancialInPerson = entity.Financial.InPerson,
-                        FinancialAddToFavorites = entity.Financial.AddToFavorites,
                         FinancialUrl = entity.Financial.Url,
                         FinancialCreatedUtc = entity.Financial.CreatedUtc,
                         FinancialModifiedUtc = entity.Financial.ModifiedUtc,
@@ -232,7 +246,6 @@ namespace whatUneed.Services
                                     EmotionalCity = e.Emotional.City,
                                     EmotionalState = e.Emotional.State,
                                     EmotionalInPerson = e.Emotional.InPerson,
-                                    EmotionalAddToFavorites = e.Emotional.AddToFavorites,
                                     EmotionalUrl = e.Emotional.Url,
                                 }
                         );
@@ -261,7 +274,6 @@ namespace whatUneed.Services
                                     PhysicalCity = e.Physical.City,
                                     PhysicalState = e.Physical.State,
                                     PhysicalInPerson = e.Physical.InPerson,
-                                    PhysicalAddToFavorites = e.Physical.AddToFavorites,
                                     PhysicalUrl = e.Physical.Url,
                                 }
                         );
@@ -290,7 +302,6 @@ namespace whatUneed.Services
                                     SocialCity = e.Social.City,
                                     SocialState = e.Social.State,
                                     SocialInPerson = e.Social.InPerson,
-                                    SocialAddToFavorites = e.Social.AddToFavorites,
                                     SocialUrl = e.Social.Url,
                                 }
                         );
@@ -319,12 +330,71 @@ namespace whatUneed.Services
                                     FinancialCity = e.Financial.City,
                                     FinancialState = e.Financial.State,
                                     FinancialInPerson = e.Financial.InPerson,
-                                    FinancialAddToFavorites = e.Financial.AddToFavorites,
                                     FinancialUrl = e.Financial.Url,
                                 }
                         );
 
                 return query.ToArray();
+            }
+        }
+
+        public bool RemoveFavoritesByEmotionalId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.EmotionalId == id);
+
+                ctx.Favorites.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool RemoveFavoritesByPhysicalId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.PhysicalId == id);
+
+                ctx.Favorites.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool RemoveFavoritesBySocialId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.SocialId == id);
+
+                ctx.Favorites.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool RemoveFavoritesByFinancialId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.OwnerId == _userId && e.FinancialId == id);
+
+                ctx.Favorites.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

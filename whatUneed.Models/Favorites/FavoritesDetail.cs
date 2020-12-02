@@ -34,9 +34,6 @@ namespace whatUneed.Models.Favorites
         [Display(Name = "In Person")]
         public bool? EmotionalInPerson { get; set; }
 
-        [Display(Name = "Favorites")]
-        public bool? EmotionalAddToFavorites { get; set; }
-
         [Display(Name = "URL")]
         public string EmotionalUrl { get; set; }
 
@@ -67,9 +64,6 @@ namespace whatUneed.Models.Favorites
         [Display(Name = "In Person")]
         public bool? PhysicalInPerson { get; set; }
 
-        [Display(Name = "Favorites")]
-        public bool? PhysicalAddToFavorites { get; set; }
-
         [Display(Name = "URL")]
         public string PhysicalUrl { get; set; }
 
@@ -99,9 +93,6 @@ namespace whatUneed.Models.Favorites
         [Display(Name = "In Person")]
         public bool? SocialInPerson { get; set; }
 
-        [Display(Name = "Favorites")]
-        public bool? SocialAddToFavorites { get; set; }
-
         [Display(Name = "URL")]
         public string SocialUrl { get; set; }
 
@@ -130,9 +121,6 @@ namespace whatUneed.Models.Favorites
 
         [Display(Name = "In Person")]
         public bool? FinancialInPerson { get; set; }
-
-        [Display(Name = "Favorites")]
-        public bool? FinancialAddToFavorites { get; set; }
 
         [Display(Name = "URL")]
         public string FinancialUrl { get; set; }

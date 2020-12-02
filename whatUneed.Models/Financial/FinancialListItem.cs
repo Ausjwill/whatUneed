@@ -27,9 +27,6 @@ namespace whatUneed.Models.Financial
         [Display(Name = "In Person")]
         public bool InPerson { get; set; }
 
-        [Display(Name = "Favorites")]
-        public bool AddToFavorites { get; set; }
-
         [Display(Name = "URL")]
         public string Url { get; set; }
     }

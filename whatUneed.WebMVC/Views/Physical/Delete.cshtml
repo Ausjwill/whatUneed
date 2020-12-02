@@ -46,13 +46,6 @@
             @Html.DisplayFor(model => model.InPerson)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.AddToFavorites)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AddToFavorites)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Url)
         </dt>
 
@@ -88,9 +81,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Edit", "Edit", new { id = Model.PhysicalId }) |
-            @Html.ActionLink("Details", "Details", new { id = Model.PhysicalId }) |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back", "Details", new { id = Model.PhysicalId })
         </div>
     }
 </div>

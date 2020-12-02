@@ -14,29 +14,31 @@ namespace whatUneed.Models.Favorites
         public int FavoriteId { get; set; }
 
 
+
         //EMOTIONAL
         public int? EmotionalId { get; set; }
 
         [Display(Name = "Category")]
         public EmotionalCategory? EmotionalCategoryType { get; set; }
 
+        [Display(Name = "Title")]
         public string EmotionalTitle { get; set; }
 
         [Display(Name = "Resource Type")]
         public Resource? EmotionalResourceType { get; set; }
 
+        [Display(Name = "City")]
         public string EmotionalCity { get; set; }
 
+        [Display(Name = "State")]
         public State? EmotionalState { get; set; }
 
         [Display(Name = "In Person")]
         public bool? EmotionalInPerson { get; set; }
 
-        [Display(Name = "Favorites")]
-        public bool? EmotionalAddToFavorites { get; set; }
-
         [Display(Name = "URL")]
         public string EmotionalUrl { get; set; }
+
 
 
         //PHYSICAL
@@ -45,47 +47,50 @@ namespace whatUneed.Models.Favorites
         [Display(Name = "Category")]
         public PhysicalCategory? PhysicalCategoryType { get; set; }
 
+        [Display(Name = "Title")]
         public string PhysicalTitle { get; set; }
 
         [Display(Name = "Resource Type")]
         public Resource? PhysicalResourceType { get; set; }
 
+        [Display(Name = "City")]
         public string PhysicalCity { get; set; }
 
+        [Display(Name = "State")]
         public State? PhysicalState { get; set; }
 
         [Display(Name = "In Person")]
         public bool? PhysicalInPerson { get; set; }
 
-        [Display(Name = "Favorites")]
-        public bool? PhysicalAddToFavorites { get; set; }
-
         [Display(Name = "URL")]
         public string PhysicalUrl { get; set; }
 
 
+
         //SOCIAL
         public int? SocialId { get; set; }
+
         [Display(Name = "Category")]
         public SocialCategory? SocialCategoryType { get; set; }
 
+        [Display(Name = "Title")]
         public string SocialTitle { get; set; }
 
         [Display(Name = "Resource Type")]
         public Resource? SocialResourceType { get; set; }
 
+        [Display(Name = "City")]
         public string SocialCity { get; set; }
 
+        [Display(Name = "State")]
         public State? SocialState { get; set; }
 
         [Display(Name = "In Person")]
         public bool? SocialInPerson { get; set; }
 
-        [Display(Name = "Favorites")]
-        public bool? SocialAddToFavorites { get; set; }
-
         [Display(Name = "URL")]
         public string SocialUrl { get; set; }
+
 
 
         //FINANCIAL
@@ -93,20 +98,21 @@ namespace whatUneed.Models.Favorites
 
         [Display(Name = "Category")]
         public FinancialCategory? FinancialCategoryType { get; set; }
+
+        [Display(Name = "Title")]
         public string FinancialTitle { get; set; }
 
         [Display(Name = "Resource Type")]
         public Resource? FinancialResourceType { get; set; }
 
+        [Display(Name = "City")]
         public string FinancialCity { get; set; }
 
+        [Display(Name = "State")]
         public State? FinancialState { get; set; }
 
         [Display(Name = "In Person")]
         public bool? FinancialInPerson { get; set; }
-
-        [Display(Name = "Favorites")]
-        public bool? FinancialAddToFavorites { get; set; }
 
         [Display(Name = "URL")]
         public string FinancialUrl { get; set; }

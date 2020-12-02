@@ -69,7 +69,7 @@ namespace whatUneed.WebMVC.Controllers
 
             if (service.CreateEmotional(model))
             {
-                TempData["SaveResult"] = "Your entry was created.";
+                TempData["SaveResult"] = "Created successfully";
                 return RedirectToAction("Index");
             };
 
@@ -100,7 +100,6 @@ namespace whatUneed.WebMVC.Controllers
                     City = detail.City,
                     State = detail.State,
                     InPerson = detail.InPerson,
-                    AddToFavorites = detail.AddToFavorites,
                     Url = detail.Url,
                 };
             return View(model);
@@ -122,7 +121,7 @@ namespace whatUneed.WebMVC.Controllers
 
             if (service.UpdateEmotional(model))
             {
-                TempData["SaveResult"] = "Your entry was updated.";
+                TempData["SaveResult"] = "Successfully updated.";
                 return RedirectToAction("Index");
             }
 
@@ -148,18 +147,39 @@ namespace whatUneed.WebMVC.Controllers
 
             service.DeleteEmotional(id);
 
-            TempData["SaveResult"] = "Your entry was deleted";
+            TempData["SaveResult"] = "Successfully deleted";
 
             return RedirectToAction("Index");
         }
 
+        [ActionName("Add")]
+        public ActionResult Add(int id)
+        {
+            var svc = CreateEmotionalService();
+            var model = svc.GetEmotionalById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Add")]
+        [ValidateAntiForgeryToken]
         public ActionResult AddToFavorites(int id)
         {
             var service = CreateFavoriteService();
-            var favorite = new FavoritesCreate();
-            favorite.EmotionalId = id;
-            service.CreateFavorites(favorite);
+            var favorite = new FavoritesCreate
+            {
+                EmotionalId = id
+            };
 
+            if (service.CreateFavorites(favorite))
+            {
+                TempData["SaveResult"] = "Added to favorites";
+
+                return RedirectToAction("Index");
+            }
+
+            TempData["SaveResult"] = "Already added to favorites";
             return RedirectToAction("Index");
         }
 

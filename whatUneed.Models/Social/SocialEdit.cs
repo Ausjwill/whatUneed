@@ -37,9 +37,6 @@ namespace whatUneed.Models.Social
         [Display(Name = "In Person")]
         public bool InPerson { get; set; }
 
-        [Display(Name = "Add To Favorites")]
-        public bool AddToFavorites { get; set; }
-
         [Url]
         [Display(Name = "URL https://example.com")]
         public string Url { get; set; }

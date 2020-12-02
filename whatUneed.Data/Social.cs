@@ -34,8 +34,6 @@ namespace whatUneed.Data
 
         public bool InPerson { get; set; }
 
-        public bool AddToFavorites { get; set; }
-
         public string Url { get; set; }
 
         [Required]

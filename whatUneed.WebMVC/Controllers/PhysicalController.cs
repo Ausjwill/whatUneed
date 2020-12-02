@@ -69,7 +69,7 @@ namespace whatUneed.WebMVC.Controllers
 
             if (service.CreatePhysical(model))
             {
-                TempData["SaveResult"] = "Your entry was created.";
+                TempData["SaveResult"] = "Created successfully";
                 return RedirectToAction("Index");
             };
 
@@ -100,7 +100,6 @@ namespace whatUneed.WebMVC.Controllers
                     City = detail.City,
                     State = detail.State,
                     InPerson = detail.InPerson,
-                    AddToFavorites = detail.AddToFavorites,
                     Url = detail.Url,
                 };
             return View(model);
@@ -122,7 +121,7 @@ namespace whatUneed.WebMVC.Controllers
 
             if (service.UpdatePhysical(model))
             {
-                TempData["SaveResult"] = "Your entry was updated.";
+                TempData["SaveResult"] = "Successfully updated.";
                 return RedirectToAction("Index");
             }
 
@@ -148,7 +147,7 @@ namespace whatUneed.WebMVC.Controllers
 
             service.DeletePhysical(id);
 
-            TempData["SaveResult"] = "Your entry was deleted";
+            TempData["SaveResult"] = "Successfully deleted";
 
             return RedirectToAction("Index");
         }
@@ -172,8 +171,15 @@ namespace whatUneed.WebMVC.Controllers
             {
                 PhysicalId = id
             };
-            service.CreateFavorites(favorite);
 
+            if (service.CreateFavorites(favorite))
+            {
+                TempData["SaveResult"] = "Added to favorites";
+
+                return RedirectToAction("Index");
+            }
+
+            TempData["SaveResult"] = "Already added to favorites";
             return RedirectToAction("Index");
         }
 
@@ -183,6 +189,7 @@ namespace whatUneed.WebMVC.Controllers
             var service = new PhysicalService(userId);
             return service;
         }
+
         private FavoritesService CreateFavoriteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
