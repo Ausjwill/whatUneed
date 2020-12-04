@@ -48,7 +48,6 @@ namespace whatUneed.Services
                 var query =
                     ctx
                         .Financials
-                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new FinancialListItem
@@ -75,7 +74,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Financials
-                        .Single(e => e.FinancialId == id && e.OwnerId == _userId);
+                        .Single(e => e.FinancialId == id);
                 return
                     new FinancialDetail
                     {
@@ -236,7 +235,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Financials
-                        .Single(e => e.FinancialId == model.FinancialId && e.OwnerId == _userId);
+                        .Single(e => e.FinancialId == model.FinancialId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -258,7 +257,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Financials
-                        .Single(e => e.FinancialId == financialId && e.OwnerId == _userId);
+                        .Single(e => e.FinancialId == financialId);
 
                 ctx.Financials.Remove(entity);
 

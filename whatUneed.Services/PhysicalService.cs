@@ -48,7 +48,6 @@ namespace whatUneed.Services
                 var query =
                     ctx
                         .Physicals
-                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new PhysicalListItem
@@ -75,7 +74,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Physicals
-                        .Single(e => e.PhysicalId == id && e.OwnerId == _userId);
+                        .Single(e => e.PhysicalId == id);
                 return
                     new PhysicalDetail
                     {
@@ -236,7 +235,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Physicals
-                        .Single(e => e.PhysicalId == model.PhysicalId && e.OwnerId == _userId);
+                        .Single(e => e.PhysicalId == model.PhysicalId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -258,7 +257,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Physicals
-                        .Single(e => e.PhysicalId == physicalId && e.OwnerId == _userId);
+                        .Single(e => e.PhysicalId == physicalId);
 
                 ctx.Physicals.Remove(entity);
 

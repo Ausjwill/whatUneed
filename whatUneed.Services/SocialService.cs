@@ -48,7 +48,6 @@ namespace whatUneed.Services
                 var query =
                     ctx
                         .Socials
-                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new SocialListItem
@@ -75,7 +74,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Socials
-                        .Single(e => e.SocialId == id && e.OwnerId == _userId);
+                        .Single(e => e.SocialId == id);
                 return
                     new SocialDetail
                     {
@@ -236,7 +235,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Socials
-                        .Single(e => e.SocialId == model.SocialId && e.OwnerId == _userId);
+                        .Single(e => e.SocialId == model.SocialId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -258,7 +257,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Socials
-                        .Single(e => e.SocialId == socialId && e.OwnerId == _userId);
+                        .Single(e => e.SocialId == socialId);
 
                 ctx.Socials.Remove(entity);
 
