@@ -34,19 +34,19 @@ namespace whatUneed.Services
                 {
                     if (model.EmotionalId != null)
                     {
-                        var checkForFavorite = ctx.Favorites.Single(e => e.EmotionalId == entity.EmotionalId);
+                        var checkForFavorite = ctx.Favorites.Single(e => e.EmotionalId == entity.EmotionalId && e.OwnerId == _userId);
                     }
                     if (model.PhysicalId != null)
                     {
-                        var checkForFavorite = ctx.Favorites.Single(e => e.PhysicalId == entity.PhysicalId);
+                        var checkForFavorite = ctx.Favorites.Single(e => e.PhysicalId == entity.PhysicalId && e.OwnerId == _userId);
                     }
                     if (model.SocialId != null)
                     {
-                        var checkForFavorite = ctx.Favorites.Single(e => e.SocialId == entity.SocialId);
+                        var checkForFavorite = ctx.Favorites.Single(e => e.SocialId == entity.SocialId && e.OwnerId == _userId);
                     }
                     if (model.FinancialId != null)
                     {
-                        var checkForFavorite = ctx.Favorites.Single(e => e.FinancialId == entity.FinancialId);
+                        var checkForFavorite = ctx.Favorites.Single(e => e.FinancialId == entity.FinancialId && e.OwnerId == _userId);
                     }
 
                     return false;

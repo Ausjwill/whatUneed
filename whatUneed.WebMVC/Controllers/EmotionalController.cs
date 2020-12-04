@@ -175,11 +175,10 @@ namespace whatUneed.WebMVC.Controllers
             if (service.CreateFavorites(favorite))
             {
                 TempData["SaveResult"] = "Added to favorites";
-
                 return RedirectToAction("Index");
             }
 
-            TempData["SaveResult"] = "Already added to favorites";
+            TempData["Name"] = "Already added to favorites";
             return RedirectToAction("Index");
         }
 
