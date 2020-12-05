@@ -178,7 +178,7 @@ namespace whatUneed.WebMVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            TempData["Name"] = "Already added to favorites";
+            TempData["SaveResult"] = "Already added to favorites";
             return RedirectToAction("Index");
         }
 

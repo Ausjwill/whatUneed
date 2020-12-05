@@ -235,7 +235,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Socials
-                        .Single(e => e.SocialId == model.SocialId);
+                        .Single(e => e.SocialId == model.SocialId && e.OwnerId == _userId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -257,7 +257,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Socials
-                        .Single(e => e.SocialId == socialId);
+                        .Single(e => e.SocialId == socialId && e.OwnerId == _userId);
 
                 ctx.Socials.Remove(entity);
 

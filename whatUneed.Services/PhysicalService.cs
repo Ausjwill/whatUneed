@@ -235,7 +235,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Physicals
-                        .Single(e => e.PhysicalId == model.PhysicalId);
+                        .Single(e => e.PhysicalId == model.PhysicalId && e.OwnerId == _userId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -257,7 +257,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Physicals
-                        .Single(e => e.PhysicalId == physicalId);
+                        .Single(e => e.PhysicalId == physicalId && e.OwnerId == _userId);
 
                 ctx.Physicals.Remove(entity);
 

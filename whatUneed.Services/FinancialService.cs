@@ -235,7 +235,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Financials
-                        .Single(e => e.FinancialId == model.FinancialId);
+                        .Single(e => e.FinancialId == model.FinancialId && e.OwnerId == _userId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -257,7 +257,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Financials
-                        .Single(e => e.FinancialId == financialId);
+                        .Single(e => e.FinancialId == financialId && e.OwnerId == _userId);
 
                 ctx.Financials.Remove(entity);
 

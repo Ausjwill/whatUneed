@@ -235,7 +235,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Emotionals
-                        .Single(e => e.EmotionalId == model.EmotionalId);
+                        .Single(e => e.EmotionalId == model.EmotionalId && e.OwnerId == _userId);
                 entity.CategoryType = model.CategoryType;
                 entity.Title = model.Title;
                 entity.ResourceType = model.ResourceType;
@@ -247,7 +247,6 @@ namespace whatUneed.Services
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
-
             }
         }
 
@@ -258,7 +257,7 @@ namespace whatUneed.Services
                 var entity =
                     ctx
                         .Emotionals
-                        .Single(e => e.EmotionalId == emotionalId);
+                        .Single(e => e.EmotionalId == emotionalId && e.OwnerId == _userId);
 
                 ctx.Emotionals.Remove(entity);
 
