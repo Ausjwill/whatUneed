@@ -31,64 +31,71 @@
 <br />
 <br />
 
-<table class="table table-condensed table-hover table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ResourceType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InPerson)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Url)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+<div class="col" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 2px;
+        border-radius: 10px;
+        color: rgb(25, 25, 25);">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink($"{item.CategoryType}", "Details", new { id = item.PhysicalId }, null)
-            </td>
-            <td>
-                @Html.ActionLink($"{item.Title}", "Details", new { id = item.PhysicalId }, null)
-            </td>
-            <td>
-                @Html.ActionLink($"{item.ResourceType}", "Details", new { id = item.PhysicalId }, null)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InPerson)
-            </td>
-            <td>
-                <a href="
+    <table class="table table-condensed table-hover table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResourceType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InPerson)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Url)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink($"{item.CategoryType}", "Details", new { id = item.PhysicalId }, null)
+                </td>
+                <td>
+                    @Html.ActionLink($"{item.Title}", "Details", new { id = item.PhysicalId }, null)
+                </td>
+                <td>
+                    @Html.ActionLink($"{item.ResourceType}", "Details", new { id = item.PhysicalId }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InPerson)
+                </td>
+                <td>
+                    <a href="
                @Html.DisplayFor(modelItem => item.Url)
                "
-                   target="blank">
-                    @Html.DisplayFor(modelItem => item.Url)
-                </a>
-            </td>
-        </tr>
-    }
+                       target="blank">
+                        @Html.DisplayFor(modelItem => item.Url)
+                    </a>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+
+</div>

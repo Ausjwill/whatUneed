@@ -12,48 +12,80 @@
         border-radius: 10px;
         color: rgb(25, 25, 25);">
 
-        Welcome! what-U-need is a space created to help others connect with helpful resources for wellbeing. This is an open community where anyone can get the help they need, as well as share resources for 
-        others to utilize. So whether you're looking for a helpful resource for your life or sharing one for others, what-U-need is a great way to be a part of something that serves others. Have a look around, and 
+        Welcome! what-U-need is a space created to help others connect with helpful resources for wellbeing. This is an open community where anyone can get the help they need, as well as share resources for
+        others to utilize. So whether you're looking for a helpful resource for your life or sharing one for others, what-U-need is a great way to be a part of something that serves others. Have a look around, and
         hopefully you'll find what you're looking for to feel connected.
-    </p>
-    <p>
-        @Html.ActionLink("Emotional", "Index", "Emotional") |
-        @Html.ActionLink("Physical", "Index", "Physical") |
-        @Html.ActionLink("Social", "Index", "Social") |
-        @Html.ActionLink("Financial", "Index", "Financial")
     </p>
 </div>
 
 <div class="row">
-    <div class="col-md-3">
-        <h2>Emotional</h2>
-        <p>
-            Struggling emotionally? You're not alone. This year has been hard for all of us. Here you'll find some great resources to help your overall emotional wellbeing.
-        </p>
-        <p>@Html.ActionLink("Learn more", "Index", "Emotional", null, new { @class = "btn btn-default" })</p>
+
+    @*EMOTIONAL*@
+    <div class="col text-center" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 2px;
+        border-radius: 10px;
+        color: rgb(25, 25, 25);">
+        <h2><a href="#col1Content" data-toggle="collapse">Emotional</a></h2>
+
+        <div id="col1Content" class="collapse">
+            <p>
+                Struggling emotionally? You're not alone. This year has been hard for all of us. Here you'll find some great resources to help your overall emotional wellbeing.
+            </p>
+            <p>@Html.ActionLink("Learn more", "Index", "Emotional", null, new { @class = "btn btn-default" })</p>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h2>Physical</h2>
-        <p>
-            Our physical wellbeing is equally as important as emotional. Check out these resources to help with anything from exercise and stress-relief to self-care and sleep.
-        </p>
-        <p>@Html.ActionLink("Learn more", "Index", "Physical", null, new { @class = "btn btn-default" })</p>
+
+    <br />
+
+    @*PHYSICAL*@
+    <div class="col text-center" style="        background-color: rgba(84, 97, 133, 0.50);
+        padding: 2px;
+        border-radius: 10px;
+        color: rgb(25, 25, 25);">
+        <h2><a href="#col2Content" data-toggle="collapse">Physical</a></h2>
+
+        <div id="col2Content" class="collapse">
+            <p>
+                Our physical wellbeing is equally as important as emotional. Check out these resources to help with anything from exercise and stress-relief to self-care and sleep.
+            </p>
+            <p>@Html.ActionLink("Learn more", "Index", "Physical", null, new { @class = "btn btn-default" })</p>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h2>Social</h2>
-        <p>
-            Probably one of the biggest hurddles we've had to overcome this past year has been social interactions. How do we still engage with others, and how do we do it safely? 
-            Here you'll find some great resources for safe effective interactions.
-        </p>
-        <p>@Html.ActionLink("Learn more", "Index", "Social", null, new { @class = "btn btn-default" })</p>
+
+    <br />
+
+    @*SOCIAL*@
+    <div class="col text-center" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 2px;
+        border-radius: 10px;
+        color: rgb(25, 25, 25);">
+        <h2><a href="#col3Content" data-toggle="collapse">Social</a></h2>
+
+        <div id="col3Content" class="collapse">
+            <p>
+                Probably one of the biggest hurddles we've had to overcome this past year has been social interactions. How do we still engage with others, and how do we do it safely?
+                Here you'll find some great resources for safe effective interactions.
+            </p>
+            <p>@Html.ActionLink("Learn more", "Index", "Social", null, new { @class = "btn btn-default" })</p>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h2>Financial</h2>
-        <p>
-            Oh finances...utterly important, and yet they can be such a cause of stress in our lives. With so much to think about it can be hard to know where to start. Fortunately,
-            these resources can help make things a bit simpler. Here you'll find help with things like saving, budgeting, wills/trusts, and much more.
-        </p>
-        <p>@Html.ActionLink("Learn more", "Index", "Financial", null, new { @class = "btn btn-default" })</p>
+
+    <br />
+
+    @*FINANCIAL*@
+    <div class="col text-center" style="        background-color: rgba(84, 97, 133, 0.50);
+        padding: 2px;
+        border-radius: 10px;
+        color: rgb(25, 25, 25);">
+        <h2><a href="#col4Content" data-toggle="collapse">Financial</a></h2>
+
+        <div id="col4Content" class="collapse">
+            <p>
+                Oh finances...utterly important, and yet they can be such a cause of stress in our lives. With so much to think about it can be hard to know where to start. Fortunately,
+                these resources can help make things a bit simpler. Here you'll find help with things like saving, budgeting, wills/trusts, and much more.
+            </p>
+            <p>@Html.ActionLink("Learn more", "Index", "Financial", null, new { @class = "btn btn-default" })</p>
+        </div>
     </div>
 
 </div>

@@ -24,6 +24,18 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <button class="btn dropdown-toggle" style="background-color: transparent; color: rgb(157, 157, 157); margin-top: 8px;" type="button" data-toggle="dropdown">
+                            Categories
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Emotional", "Index", "Emotional")</li>
+                            <li>@Html.ActionLink("Physical", "Index", "Physical")</li>
+                            <li>@Html.ActionLink("Social", "Index", "Social")</li>
+                            <li>@Html.ActionLink("Financial", "Index", "Financial")</li>
+                        </ul>
+                    </li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Favorites", "Index", "Favorites")</li>
