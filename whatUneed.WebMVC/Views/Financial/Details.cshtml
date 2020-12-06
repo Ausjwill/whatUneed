@@ -10,71 +10,95 @@
 
     <hr />
 
-    <h4>@Html.DisplayFor(model => model.Description)</h4>
+    <div class="col" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
+
+        <h4>@Html.DisplayFor(model => model.Description)</h4>
+
+    </div>
 
     <hr />
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryType)
-        </dt>
+    <div class="col-md-8" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
 
-        <dd>
-            @Html.DisplayFor(model => model.CategoryType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ResourceType)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryType)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ResourceType)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CategoryType)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ResourceType)
+            </dt>
 
-        <dt>
-            Location
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ResourceType)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State)
-        </dd>
+            <dt>
+                Location
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.InPerson)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.InPerson)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Url)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.InPerson)
+            </dt>
 
-        <dd>
-            <a href="
+            <dd>
+                @Html.DisplayFor(model => model.InPerson)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Url)
+            </dt>
+
+            <dd>
+                <a href="
            @Html.DisplayFor(model => model.Url)
            "
-               target="blank">
-                @Html.DisplayFor(model => model.Url)
-            </a>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
+                   target="blank">
+                    @Html.DisplayFor(model => model.Url)
+                </a>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
 </div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <p>
     @Html.ActionLink("Add To Favorites", "Add", new { id = Model.FinancialId }) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.FinancialId }) |

@@ -10,71 +10,94 @@
 
     <hr />
 
-    <h4>@Html.DisplayFor(model => model.SocialDescription)</h4>
+    <div class="col" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
+
+        <h4>@Html.DisplayFor(model => model.SocialDescription)</h4>
+
+    </div>
 
     <hr />
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SocialCategoryType)
-        </dt>
+    <div class="col-md-8" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
 
-        <dd>
-            @Html.DisplayFor(model => model.SocialCategoryType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SocialResourceType)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SocialCategoryType)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SocialResourceType)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.SocialCategoryType)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SocialResourceType)
+            </dt>
 
-        <dt>
-            Location
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SocialResourceType)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SocialCity), @Html.DisplayFor(model => model.SocialState)
-        </dd>
+            <dt>
+                Location
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SocialInPerson)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SocialCity), @Html.DisplayFor(model => model.SocialState)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SocialInPerson)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SocialUrl)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.SocialInPerson)
+            </dt>
 
-        <dd>
-            <a href="
+            <dd>
+                @Html.DisplayFor(model => model.SocialInPerson)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SocialUrl)
+            </dt>
+
+            <dd>
+                <a href="
            @Html.DisplayFor(model => model.SocialUrl)
            "
-               target="blank">
-                @Html.DisplayFor(model => model.SocialUrl)
-            </a>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SocialCreatedUtc)
-        </dt>
+                   target="blank">
+                    @Html.DisplayFor(model => model.SocialUrl)
+                </a>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SocialCreatedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SocialCreatedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.SocialCreatedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SocialModifiedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.SocialModifiedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SocialModifiedUtc)
-        </dd>
-
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.SocialModifiedUtc)
+            </dd>
+        </dl>
+    </div>
 </div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

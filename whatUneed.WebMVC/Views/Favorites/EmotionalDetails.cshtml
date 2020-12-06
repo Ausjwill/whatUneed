@@ -10,72 +10,94 @@
 
     <hr />
 
-    <h4>@Html.DisplayFor(model => model.EmotionalDescription)</h4>
+    <div class="col" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
+
+        <h4>@Html.DisplayFor(model => model.EmotionalDescription)</h4>
+
+    </div>
 
     <hr />
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EmotionalCategoryType)
-        </dt>
+    <div class="col-md-8" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
 
-        <dd>
-            @Html.DisplayFor(model => model.EmotionalCategoryType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EmotionalResourceType)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EmotionalCategoryType)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmotionalResourceType)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EmotionalCategoryType)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EmotionalResourceType)
+            </dt>
 
-        <dt>
-            Location
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EmotionalResourceType)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmotionalCity), @Html.DisplayFor(model => model.EmotionalState)
-        </dd>
+            <dt>
+                Location
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmotionalInPerson)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EmotionalCity), @Html.DisplayFor(model => model.EmotionalState)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmotionalInPerson)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EmotionalInPerson)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmotionalUrl)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EmotionalInPerson)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EmotionalUrl)
+            </dt>
 
-        <dd>
-            <a href="
+            <dd>
+                <a href="
            @Html.DisplayFor(model => model.EmotionalUrl)
            "
-               target="blank">
-                @Html.DisplayFor(model => model.EmotionalUrl)
-            </a>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EmotionalCreatedUtc)
-        </dt>
+                   target="blank">
+                    @Html.DisplayFor(model => model.EmotionalUrl)
+                </a>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EmotionalCreatedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmotionalCreatedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EmotionalCreatedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmotionalModifiedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EmotionalModifiedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmotionalModifiedUtc)
-        </dd>
-
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.EmotionalModifiedUtc)
+            </dd>
+        </dl>
+    </div>
 </div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

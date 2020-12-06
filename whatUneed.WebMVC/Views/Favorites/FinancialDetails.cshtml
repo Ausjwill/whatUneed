@@ -10,72 +10,94 @@
 
     <hr />
 
-    <h4>@Html.DisplayFor(model => model.FinancialDescription)</h4>
+    <div class="col" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
+
+        <h4>@Html.DisplayFor(model => model.FinancialDescription)</h4>
+
+    </div>
 
     <hr />
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FinancialCategoryType)
-        </dt>
+    <div class="col-md-8" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
 
-        <dd>
-            @Html.DisplayFor(model => model.FinancialCategoryType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FinancialResourceType)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FinancialCategoryType)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FinancialResourceType)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FinancialCategoryType)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FinancialResourceType)
+            </dt>
 
-        <dt>
-            Location
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FinancialResourceType)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FinancialCity), @Html.DisplayFor(model => model.FinancialState)
-        </dd>
+            <dt>
+                Location
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FinancialInPerson)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FinancialCity), @Html.DisplayFor(model => model.FinancialState)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FinancialInPerson)
-        </dd>
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.FinancialUrl)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FinancialInPerson)
+            </dt>
 
-        <dd>
-            <a href="
+            <dd>
+                @Html.DisplayFor(model => model.FinancialInPerson)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FinancialUrl)
+            </dt>
+
+            <dd>
+                <a href="
            @Html.DisplayFor(model => model.FinancialUrl)
            "
-               target="blank">
-                @Html.DisplayFor(model => model.FinancialUrl)
-            </a>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FinancialCreatedUtc)
-        </dt>
+                   target="blank">
+                    @Html.DisplayFor(model => model.FinancialUrl)
+                </a>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FinancialCreatedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FinancialCreatedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FinancialCreatedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FinancialModifiedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FinancialModifiedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FinancialModifiedUtc)
-        </dd>
-
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.FinancialModifiedUtc)
+            </dd>
+        </dl>
+    </div>
 </div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

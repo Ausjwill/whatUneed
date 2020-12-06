@@ -10,70 +10,15 @@
 
     <hr />
 
-    <h4>@Html.DisplayFor(model => model.Description)</h4>
+    <div class="col" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
+
+        <h4>@Html.DisplayFor(model => model.Description)</h4>
+
+    </div>
 
     <hr />
-
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ResourceType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ResourceType)
-        </dd>
-
-        <dt>
-            Location
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InPerson)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InPerson)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Url)
-        </dt>
-
-        <dd>
-            <a href="
-           @Html.DisplayFor(model => model.Url)
-           "
-               target="blank">
-                @Html.DisplayFor(model => model.Url)
-            </a>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
 
     @using (Html.BeginForm())
     {

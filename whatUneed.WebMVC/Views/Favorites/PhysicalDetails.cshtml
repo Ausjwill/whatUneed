@@ -10,71 +10,94 @@
 
     <hr />
 
-    <h4>@Html.DisplayFor(model => model.PhysicalDescription)</h4>
+    <div class="col" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
+
+        <h4>@Html.DisplayFor(model => model.PhysicalDescription)</h4>
+
+    </div>
 
     <hr />
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicalCategoryType)
-        </dt>
+    <div class="col-md-8" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 10px;
+        border-radius: 10px;">
 
-        <dd>
-            @Html.DisplayFor(model => model.PhysicalCategoryType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicalResourceType)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PhysicalCategoryType)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhysicalResourceType)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PhysicalCategoryType)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhysicalResourceType)
+            </dt>
 
-        <dt>
-            Location
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PhysicalResourceType)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhysicalCity), @Html.DisplayFor(model => model.PhysicalState)
-        </dd>
+            <dt>
+                Location
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicalInPerson)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PhysicalCity), @Html.DisplayFor(model => model.PhysicalState)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhysicalInPerson)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicalUrl)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhysicalInPerson)
+            </dt>
 
-        <dd>
-            <a href="
+            <dd>
+                @Html.DisplayFor(model => model.PhysicalInPerson)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhysicalUrl)
+            </dt>
+
+            <dd>
+                <a href="
            @Html.DisplayFor(model => model.PhysicalUrl)
            "
-               target="blank">
-                @Html.DisplayFor(model => model.PhysicalUrl)
-            </a>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicalCreatedUtc)
-        </dt>
+                   target="blank">
+                    @Html.DisplayFor(model => model.PhysicalUrl)
+                </a>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhysicalCreatedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhysicalCreatedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PhysicalCreatedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhysicalModifiedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhysicalModifiedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhysicalModifiedUtc)
-        </dd>
-
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.PhysicalModifiedUtc)
+            </dd>
+        </dl>
+    </div>
 </div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
