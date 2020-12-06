@@ -1,25 +1,43 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contact me!";
 }
 <h2>@ViewBag.Title</h2>
 
-<div style="        background-color: rgba(184, 189, 193, 0.5);
-        padding: 10px;
+<div class="col-md-6" style="        background-color: rgba(184, 189, 193, 0.5);
+        padding: 0px, 10px, 0px, 10px;
         border-radius: 10px;
         color: rgb(25, 25, 25);
         font-family: Calibri">
 
     <h3>@ViewBag.Message</h3>
 
+    <form action="https://formspree.io/f/xrgoeena" method="POST">
+        <input placeholder="Name" type="text" name="name">
+        <br>
+        <input placeholder="Email Address" type="email" name="_replyto">
+        <br>
+        <input placeholder="Message..." type="text" name="message">
+        <br>
+        <input type="submit" value="Send">
+    </form>
+
+    <br />
+
     <address>
         Created by Austin Williams<br />
         Plainwell, MI 49080<br />
     </address>
+</div>
 
-    <address>
-        <strong>Email:</strong>   <a href="mailto:Ausjwill@gmail.com">Ausjwill@gmail.com</a><br />
-        <strong>Portfolio:</strong> <a href="https://ausjwill.github.io/Ausjwill/" target="blank">Ausjwill.github.io/Ausjwill</a><br />
-        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ausjwill/" target="blank">Linkedin.com/in/Ausjwill</a>
-    </address>
-
-    </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

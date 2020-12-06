@@ -22,7 +22,7 @@ namespace whatUneed.WebMVC.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Feel free to get in touch";
+            ViewBag.Message = "Enter your information here:";
 
             return View();
         }
