@@ -31,6 +31,7 @@
 <br />
 <br />
 
+<div class="hidden-sm hidden-xs">
     <table class="table table-condensed table-hover table-striped table-bordered">
         <thead style="        background-color: rgba(84, 97, 133, 0.50);">
             <tr>
@@ -79,3 +80,44 @@
         }
 
     </table>
+</div>
+
+<div class="visible-sm visible-xs">
+    <table class="table table-condensed table-hover table-striped table-bordered">
+        <thead style="        background-color: rgba(84, 97, 133, 0.50);">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResourceType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InPerson)
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink($"{item.CategoryType}", "Details", new { id = item.PhysicalId }, null)
+                </td>
+                <td>
+                    @Html.ActionLink($"{item.Title}", "Details", new { id = item.PhysicalId }, null)
+                </td>
+                <td>
+                    @Html.ActionLink($"{item.ResourceType}", "Details", new { id = item.PhysicalId }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InPerson)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

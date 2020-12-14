@@ -18,269 +18,474 @@
     </div>
 }
 
-<div class="col">
-    <h2><a href="#col1Content" data-toggle="collapse">Emotional</a></h2>
+<div class="hidden-sm hidden-xs">
 
-    <div id="col1Content" class="collapse">
+    <div class="col">
+        <h2><a href="#col1Content" data-toggle="collapse">Emotional</a></h2>
 
-        <table class="table table-condensed table-hover table-striped table-bordered">
-            <thead style="        background-color: rgba(84, 97, 133, 0.50);">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmotionalCategoryType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmotionalTitle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmotionalResourceType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmotionalInPerson)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmotionalUrl)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
+        <div id="col1Content" class="collapse">
 
-            @foreach (var item in Model)
-            {
-                if (item.EmotionalId != null)
-                {
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EmotionalCategoryType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EmotionalTitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EmotionalResourceType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EmotionalInPerson)
-                        </td>
-                        <td>
-                            <a href="
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalResourceType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalInPerson)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalUrl)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.EmotionalId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmotionalCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmotionalTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmotionalResourceType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmotionalInPerson)
+                            </td>
+                            <td>
+                                <a href="
                     @Html.DisplayFor(modelItem => item.EmotionalUrl)
                "
-                               target="blank">
-                                @Html.DisplayFor(modelItem => item.EmotionalUrl)
-                            </a>
-                        </td>
-                        <td>
-                            @Html.ActionLink("Details", "EmotionalDetails", new { id = item.EmotionalId }) |
-                            @Html.ActionLink("Remove", "EmotionalRemove", new { id = item.EmotionalId })
-                        </td>
-                    </tr>
+                                   target="blank">
+                                    @Html.DisplayFor(modelItem => item.EmotionalUrl)
+                                </a>
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "EmotionalDetails", new { id = item.EmotionalId }) |
+                                @Html.ActionLink("Remove", "EmotionalRemove", new { id = item.EmotionalId })
+                            </td>
+                        </tr>
+                    }
+
                 }
 
-            }
+            </table>
 
-        </table>
-
+        </div>
     </div>
-</div>
 
-<br />
+    <br />
 
-<div class="col">
-    <h2><a href="#col2Content" data-toggle="collapse">Physical</a></h2>
+    <div class="col">
+        <h2><a href="#col2Content" data-toggle="collapse">Physical</a></h2>
 
-    <div id="col2Content" class="collapse">
+        <div id="col2Content" class="collapse">
 
-        <table class="table table-condensed table-hover table-striped table-bordered">
-            <thead style="        background-color: rgba(84, 97, 133, 0.50);">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhysicalCategoryType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhysicalTitle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhysicalResourceType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhysicalInPerson)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhysicalUrl)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-
-            @foreach (var item in Model)
-            {
-                if (item.PhysicalId != null)
-                {
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PhysicalCategoryType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PhysicalTitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PhysicalResourceType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PhysicalInPerson)
-                        </td>
-                        <td>
-                            <a href="
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalResourceType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalInPerson)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalUrl)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.PhysicalId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhysicalCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhysicalTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhysicalResourceType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhysicalInPerson)
+                            </td>
+                            <td>
+                                <a href="
                @Html.DisplayFor(modelItem => item.PhysicalUrl)
                "
-                               target="blank">
-                                @Html.DisplayFor(modelItem => item.PhysicalUrl)
-                            </a>
-                        </td>
-                        <td>
-                            @Html.ActionLink("Details", "PhysicalDetails", new { id = item.PhysicalId }) |
-                            @Html.ActionLink("Remove", "PhysicalRemove", new { id = item.PhysicalId })
-                        </td>
-                    </tr>
+                                   target="blank">
+                                    @Html.DisplayFor(modelItem => item.PhysicalUrl)
+                                </a>
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "PhysicalDetails", new { id = item.PhysicalId }) |
+                                @Html.ActionLink("Remove", "PhysicalRemove", new { id = item.PhysicalId })
+                            </td>
+                        </tr>
+                    }
                 }
-            }
 
-        </table>
+            </table>
 
+        </div>
     </div>
-</div>
 
-<br />
+    <br />
 
-<div class="col">
-    <h2><a href="#col3Content" data-toggle="collapse">Social</a></h2>
+    <div class="col">
+        <h2><a href="#col3Content" data-toggle="collapse">Social</a></h2>
 
-    <div id="col3Content" class="collapse">
+        <div id="col3Content" class="collapse">
 
-        <table class="table table-condensed table-hover table-striped table-bordered">
-            <thead style="        background-color: rgba(84, 97, 133, 0.50);">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SocialCategoryType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SocialTitle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SocialResourceType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SocialInPerson)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SocialUrl)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-
-            @foreach (var item in Model)
-            {
-                if (item.SocialId != null)
-                {
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SocialCategoryType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SocialTitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SocialResourceType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SocialInPerson)
-                        </td>
-                        <td>
-                            <a href="
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialResourceType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialInPerson)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialUrl)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.SocialId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SocialCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SocialTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SocialResourceType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SocialInPerson)
+                            </td>
+                            <td>
+                                <a href="
                @Html.DisplayFor(modelItem => item.SocialUrl)
                "
-                               target="blank">
-                                @Html.DisplayFor(modelItem => item.SocialUrl)
-                            </a>
-                        </td>
-                        <td>
-                            @Html.ActionLink("Details", "SocialDetails", new { id = item.SocialId }) |
-                            @Html.ActionLink("Remove", "SocialRemove", new { id = item.SocialId })
-                        </td>
-                    </tr>
+                                   target="blank">
+                                    @Html.DisplayFor(modelItem => item.SocialUrl)
+                                </a>
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "SocialDetails", new { id = item.SocialId }) |
+                                @Html.ActionLink("Remove", "SocialRemove", new { id = item.SocialId })
+                            </td>
+                        </tr>
+                    }
                 }
-            }
 
-        </table>
+            </table>
 
+        </div>
+    </div>
+
+    <br />
+
+    <div class="col">
+        <h2><a href="#col4Content" data-toggle="collapse">Financial</a></h2>
+
+        <div id="col4Content" class="collapse">
+
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialResourceType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialInPerson)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialUrl)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.FinancialId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinancialCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinancialTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinancialResourceType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinancialInPerson)
+                            </td>
+                            <td>
+                                <a href="
+               @Html.DisplayFor(modelItem => item.FinancialUrl)
+               "
+                                   target="blank">
+                                    @Html.DisplayFor(modelItem => item.FinancialUrl)
+                                </a>
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "FinancialDetails", new { id = item.FinancialId }) |
+                                @Html.ActionLink("Remove", "FinancialRemove", new { id = item.FinancialId })
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+        </div>
     </div>
 </div>
 
-<br />
+<div class="visible-sm visible-xs">
 
-<div class="col">
-    <h2><a href="#col4Content" data-toggle="collapse">Financial</a></h2>
+    <div class="col">
+        <h2><a href="#col5Content" data-toggle="collapse">Emotional</a></h2>
 
-    <div id="col4Content" class="collapse">
+        <div id="col5Content" class="collapse">
 
-        <table class="table table-condensed table-hover table-striped table-bordered">
-            <thead style="        background-color: rgba(84, 97, 133, 0.50);">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FinancialCategoryType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FinancialTitle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FinancialResourceType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FinancialInPerson)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FinancialUrl)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-
-            @foreach (var item in Model)
-            {
-                if (item.FinancialId != null)
-                {
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FinancialCategoryType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FinancialTitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FinancialResourceType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FinancialInPerson)
-                        </td>
-                        <td>
-                            <a href="
-               @Html.DisplayFor(modelItem => item.FinancialUrl)
-               "
-                               target="blank">
-                                @Html.DisplayFor(modelItem => item.FinancialUrl)
-                            </a>
-                        </td>
-                        <td>
-                            @Html.ActionLink("Details", "FinancialDetails", new { id = item.FinancialId }) |
-                            @Html.ActionLink("Remove", "FinancialRemove", new { id = item.FinancialId })
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmotionalResourceType)
+                        </th>
+                        <th></th>
                     </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.EmotionalId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmotionalCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmotionalTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmotionalResourceType)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "EmotionalDetails", new { id = item.EmotionalId }) |
+                                @Html.ActionLink("Remove", "EmotionalRemove", new { id = item.EmotionalId })
+                            </td>
+                        </tr>
+                    }
+
                 }
-            }
 
-        </table>
+            </table>
 
+        </div>
+    </div>
+
+    <br />
+
+    <div class="col">
+        <h2><a href="#col6Content" data-toggle="collapse">Physical</a></h2>
+
+        <div id="col6Content" class="collapse">
+
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhysicalResourceType)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.PhysicalId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhysicalCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhysicalTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhysicalResourceType)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "PhysicalDetails", new { id = item.PhysicalId }) |
+                                @Html.ActionLink("Remove", "PhysicalRemove", new { id = item.PhysicalId })
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+        </div>
+    </div>
+
+    <br />
+
+    <div class="col">
+        <h2><a href="#col7Content" data-toggle="collapse">Social</a></h2>
+
+        <div id="col7Content" class="collapse">
+
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SocialResourceType)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.SocialId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SocialCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SocialTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SocialResourceType)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "SocialDetails", new { id = item.SocialId }) |
+                                @Html.ActionLink("Remove", "SocialRemove", new { id = item.SocialId })
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+        </div>
+    </div>
+
+    <br />
+
+    <div class="col">
+        <h2><a href="#col8Content" data-toggle="collapse">Financial</a></h2>
+
+        <div id="col8Content" class="collapse">
+
+            <table class="table table-condensed table-hover table-striped table-bordered">
+                <thead style="        background-color: rgba(84, 97, 133, 0.50);">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialCategoryType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FinancialResourceType)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    if (item.FinancialId != null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinancialCategoryType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinancialTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FinancialResourceType)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "FinancialDetails", new { id = item.FinancialId }) |
+                                @Html.ActionLink("Remove", "FinancialRemove", new { id = item.FinancialId })
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+        </div>
     </div>
 </div>

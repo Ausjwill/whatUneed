@@ -1,65 +1,143 @@
-﻿<table>
-    <tr>
-        <th>
-            @using (Html.BeginForm("Index", "Physical", null))
-            {
+﻿<div class="hidden-sm hidden-xs">
+    <table>
+        <tr>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
 
-                <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.TextBox("categoryType", "", new { htmlAttributes = new { @class = "form-control" } })
-                            <input type="submit" value="Category" class="btn btn-primary btn-xs" />
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBox("categoryType", "", new { htmlAttributes = new { @class = "form-control" } })
+                                <input type="submit" value="Category" class="btn btn-primary btn-xs" />
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-        </th>
-        <th>
-            @using (Html.BeginForm("Index", "Physical", null))
-            {
+                }
+            </th>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
 
-                <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.TextBox("title", "", new { htmlAttributes = new { @class = "form-control" } })
-                            <input type="submit" value="Title" class="btn btn-primary btn-xs" />
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBox("title", "", new { htmlAttributes = new { @class = "form-control" } })
+                                <input type="submit" value="Title" class="btn btn-primary btn-xs" />
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-        </th>
-        <th>
-            @using (Html.BeginForm("Index", "Physical", null))
-            {
+                }
+            </th>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
 
-                <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.TextBox("resourceType", "", new { htmlAttributes = new { @class = "form-control" } })
-                            <input type="submit" value="Resource" class="btn btn-primary btn-xs" />
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBox("resourceType", "", new { htmlAttributes = new { @class = "form-control" } })
+                                <input type="submit" value="Resource" class="btn btn-primary btn-xs" />
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-        </th>
-        <th>
-            @using (Html.BeginForm("Index", "Physical", null))
-            {
+                }
+            </th>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
 
-                <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.CheckBox("inPerson", new { htmlAttributes = new { @class = "form-control" } })
-                            <label>In Person</label>
-                            <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.CheckBox("inPerson", new { htmlAttributes = new { @class = "form-control" } })
+                                <label>In Person</label>
+                                <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-        </th>
-    </tr>
-</table>
+                }
+            </th>
+        </tr>
+    </table>
+</div>
+
+<div class="visible-sm visible-xs">
+    <table>
+        <tr>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBox("categoryType", "", new { htmlAttributes = new { @class = "form-control" } })
+                                <input type="submit" value="Category" class="btn btn-primary btn-xs" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </th>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBox("title", "", new { htmlAttributes = new { @class = "form-control" } })
+                                <input type="submit" value="Title" class="btn btn-primary btn-xs" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </th>
+        </tr>
+    </table>
+
+    <br />
+    <br />
+
+    <table>
+        <tr>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBox("resourceType", "", new { htmlAttributes = new { @class = "form-control" } })
+                                <input type="submit" value="Resource" class="btn btn-primary btn-xs" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </th>
+            <th>
+                @using (Html.BeginForm("Index", "Physical", null))
+                {
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.CheckBox("inPerson", new { htmlAttributes = new { @class = "form-control" } })
+                                <label>In Person</label>
+                                <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </th>
+        </tr>
+    </table>
+</div>
